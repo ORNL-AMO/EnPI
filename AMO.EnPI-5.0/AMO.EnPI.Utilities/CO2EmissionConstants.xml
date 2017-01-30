@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<CO2Emissions>
+  <CO2Emission>
+    <EnergySource>Custom</EnergySource>
+    <FuelType></FuelType>
+    <EmissionFactor></EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>Default: U.S. Average</FuelType>
+    <EmissionFactor>176.07</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>AKGD: AK - Grid</FuelType>
+    <EmissionFactor>177.84</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>AKMS: AK - Other</FuelType>
+    <EmissionFactor>63.55</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>AZNM: AZ, NM (West), NV (LV area), CA (Southeast)</FuelType>
+    <EmissionFactor>171.30</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>CAMX: CA - Most</FuelType>
+    <EmissionFactor>88.83</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>ERCT: TX - Most</FuelType>
+    <EmissionFactor>176.67</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>FRCC: FL - All but West panhandle</FuelType>
+    <EmissionFactor>169.63</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>HIMS: HI - Other</FuelType>
+    <EmissionFactor>192.67</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>HIOA: HI - Oahu</FuelType>
+    <EmissionFactor>253.19</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>MROE: WI (East), MI - Panhandle</FuelType>
+    <EmissionFactor>228.61</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>MROW: MN, IO, NE, ND, SD, MT (East)</FuelType>
+    <EmissionFactor>218.06</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>NEWE: New England</FuelType>
+    <EmissionFactor>102.72</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>NWPP: WA, OR, ID, MT (Most), WY (West), UT, CA, NV (excl. LV area)</FuelType>
+    <EmissionFactor>122.65</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>NYCW: NY - NYC/Westchester</FuelType>
+    <EmissionFactor>88.06</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>NYLI: NY - Long Island</FuelType>
+    <EmissionFactor>189.31</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>NYUP: NY - Upstate</FuelType>
+    <EmissionFactor>77.40</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>RFCE: PA - East, NJ, DE, MD - East, DC</FuelType>
+    <EmissionFactor>142.13</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>RFCM: MI (excl. SW/Panhandle)</FuelType>
+    <EmissionFactor>231.22</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>RFCW: OH, IN, WV, PA - West, VA - West, IL - North, KY - East, MD - West, WI - East, MI - Panhandle</FuelType>
+    <EmissionFactor>213.32</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>RMPA: CO, WY (East), NE (West), SD (West), NM (North)</FuelType>
+    <EmissionFactor>276.04</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>SPNO: KS, MO (West)</FuelType>
+    <EmissionFactor>255.27</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>SPSO: OK, TX (Panhandle, East), NM (East), AR (West), LA (West)</FuelType>
+    <EmissionFactor>224.06</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>SRMV: AR (East), MS (West), LA (East, &amp; coastal), TX (East)</FuelType>
+    <EmissionFactor>145.88</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>SRMW: MO (East), IL (South)</FuelType>
+    <EmissionFactor>256.91</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>SRSO: MS (Southeast &amp; coastal), AL (Most), GA (Most), FL (West panhandle)</FuelType>
+    <EmissionFactor>192.09</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>SRTV: TN, KY (Most), MS (Northeast), AL (North), GA (North), NC (far West), VA (far West)</FuelType>
+    <EmissionFactor>197.09</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Electricity</EnergySource>
+    <FuelType>SRVC: VA (Central &amp; North), NC (Most), SC</FuelType>
+    <EmissionFactor>152.36</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Steam &amp; Hot Water</EnergySource>
+    <FuelType></FuelType>
+    <EmissionFactor>66.40</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Natural Gas</EnergySource>
+    <FuelType></FuelType>
+    <EmissionFactor>53.11</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Liquefied Petroleum Gas (LPG)</EnergySource>
+    <FuelType></FuelType>
+    <EmissionFactor>61.96</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Distillate (Light) Fuel Oil</EnergySource>
+    <FuelType>Default: Distillate Fuel #2</FuelType>
+    <EmissionFactor>74.21</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Distillate (Light) Fuel Oil</EnergySource>
+    <FuelType>Distillate Fuel #1</FuelType>
+    <EmissionFactor>73.50</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Distillate (Light) Fuel Oil</EnergySource>
+    <FuelType>Distillate Fuel #4</FuelType>
+    <EmissionFactor>75.29</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Residual (Heavy) Fuel Oil</EnergySource>
+    <FuelType>Default: Residual Fuel #6</FuelType>
+    <EmissionFactor>75.35</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Residual (Heavy) Fuel Oil</EnergySource>
+    <FuelType>Residual Fuel #5</FuelType>
+    <EmissionFactor>73.18</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Kerosene</EnergySource>
+    <FuelType></FuelType>
+    <EmissionFactor>75.45</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Coal</EnergySource>
+    <FuelType>Default: Mixed - Industrial Sector</FuelType>
+    <EmissionFactor>95.42</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Coal</EnergySource>
+    <FuelType>Anthracite</FuelType>
+    <EmissionFactor>104.44</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Coal</EnergySource>
+    <FuelType>Bituminous</FuelType>
+    <EmissionFactor>94.03</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Coal</EnergySource>
+    <FuelType>Subbituminous</FuelType>
+    <EmissionFactor>97.92</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Coal</EnergySource>
+    <FuelType>Lignite</FuelType>
+    <EmissionFactor>98.47</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Coal</EnergySource>
+    <FuelType>Mixed - Commercial</FuelType>
+    <EmissionFactor>95.02</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Coal (industrial coking)</FuelType>
+    <EmissionFactor>94.65</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Coal Coke</FuelType>
+    <EmissionFactor>114.42</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Petroleum Coke</FuelType>
+    <EmissionFactor>102.66</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Blast Furnace Gas</FuelType>
+    <EmissionFactor>274.35</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Still Gas</FuelType>
+    <EmissionFactor>66.97</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Coke Oven Gas</FuelType>
+    <EmissionFactor>46.89</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Crude Petroleum</FuelType>
+    <EmissionFactor>74.79</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Motor Gasoline</FuelType>
+    <EmissionFactor>70.47</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Propane</FuelType>
+    <EmissionFactor>63.12</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Propylene</FuelType>
+    <EmissionFactor>66.20</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Ethane</FuelType>
+    <EmissionFactor>59.85</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Ethylene</FuelType>
+    <EmissionFactor>66.21</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Isobutane</FuelType>
+    <EmissionFactor>65.19</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Butane</FuelType>
+    <EmissionFactor>65.02</EmissionFactor>
+  </CO2Emission>
+  <CO2Emission>
+    <EnergySource>Other fuels</EnergySource>
+    <FuelType>Pentanes Plus</FuelType>
+    <EmissionFactor>70.27</EmissionFactor>
+  </CO2Emission>
+ 
+</CO2Emissions>
