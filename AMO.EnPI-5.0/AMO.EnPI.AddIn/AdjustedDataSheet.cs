@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -1337,7 +1337,7 @@ namespace AMO.EnPI.AddIn
             {
                 if (backcast == false)
                 {
-                    if (minModel < avgReportYr && avgReportYr < maxModel && minus3DevVal < avgReportYr && avgReportYr < plus3DevVal)
+                    if ((minModel < avgReportYr && avgReportYr < maxModel) || (minus3DevVal < avgReportYr && avgReportYr < plus3DevVal))
                     {
                         retVal = "Pass";
                     }
@@ -1348,7 +1348,7 @@ namespace AMO.EnPI.AddIn
                 }
                 else
                 {
-                    if (minModel < avgBaselineYr && avgBaselineYr < maxModel && minus3DevVal < avgBaselineYr && avgBaselineYr < plus3DevVal)
+                    if ((minModel < avgBaselineYr && avgBaselineYr < maxModel) || (minus3DevVal < avgBaselineYr && avgBaselineYr < plus3DevVal))
                     {
                         retVal = "Pass";
                     }
