@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -494,7 +494,7 @@ namespace AMO.EnPI.AddIn
                     if (count > 0)
                     {
 
-                        if (sepVals.MinModel < sepVals.AvgReportYr && sepVals.AvgReportYr < sepVals.MaxModel && sepVals.Minus3DevVal < sepVals.AvgReportYr && sepVals.AvgReportYr < sepVals.Plus3DevVal)
+                        if ((sepVals.MinModel < sepVals.AvgReportYr && sepVals.AvgReportYr < sepVals.MaxModel) || (sepVals.Minus3DevVal < sepVals.AvgReportYr && sepVals.AvgReportYr < sepVals.Plus3DevVal))
                         {
                             sepVals.SEPValidationCheck = "Pass";
                         }
