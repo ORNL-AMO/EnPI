@@ -37,15 +37,4 @@ using Microsoft.Office.Tools.Excel;
 [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
-// 
-// The ExcelLocale1033 attribute controls the locale that is passed to the Excel
-// object model. Setting ExcelLocale1033 to true causes the Excel object model to 
-// act the same in all locales, which matches the behavior of Visual Basic for 
-// Applications. Setting ExcelLocale1033 to false causes the Excel object model to
-// act differently when users have different locale settings, which matches the 
-// behavior of Visual Studio Tools for Office, Version 2003. This can cause unexpected 
-// results in locale-sensitive information such as formula names and date formats.
-// 
-[assembly: ExcelLocale1033(true)]
-
 [assembly: SecurityTransparent()]

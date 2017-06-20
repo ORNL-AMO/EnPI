@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.13
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMO.EnPI.AddIn", "AMO.EnPI.AddIn\AMO.EnPI.AddIn.csproj", "{4EAD224F-2DF5-4A87-8716-3978981AF386}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMO.EnPI.AddIn.Utilities", "AMO.EnPI.Utilities\AMO.EnPI.AddIn.Utilities.csproj", "{874A2E11-D6F1-4866-89AD-137C73DA4447}"
@@ -10,24 +12,6 @@ EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AMO.EnPI.Setup", "AMO.EnPI.Setup\AMO.EnPI.Setup.vdproj", "{AB005E3A-6CEA-4A75-AD78-9B4B189C2F7E}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.ppc.com:8080/tfs/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = AMO.EnPI.Utilities\\AMO.EnPI.AddIn.Utilities.csproj
-		SccProjectName1 = AMO.EnPI.Utilities
-		SccLocalPath1 = AMO.EnPI.Utilities
-		SccProjectUniqueName2 = alglib\\alglib.csproj
-		SccProjectName2 = alglib
-		SccLocalPath2 = alglib
-		SccProjectUniqueName3 = AMO.EnPI.AddIn\\AMO.EnPI.AddIn.csproj
-		SccProjectName3 = AMO.EnPI.AddIn
-		SccLocalPath3 = AMO.EnPI.AddIn
-		SccProjectUniqueName4 = AMO.EnPI.Setup\\AMO.EnPI.Setup.vdproj
-		SccProjectName4 = AMO.EnPI.Setup
-		SccLocalPath4 = AMO.EnPI.Setup
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86

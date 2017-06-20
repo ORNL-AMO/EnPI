@@ -1,0 +1,6 @@
+.gitignore
+.vs
+AMO.EnPI-5.0
+EnPI.txt
+LICENSE
+README.md

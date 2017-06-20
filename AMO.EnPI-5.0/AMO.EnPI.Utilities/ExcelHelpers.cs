@@ -64,7 +64,7 @@ namespace AMO.EnPI.AddIn.Utilities
         {
             // create list objects for the model year and adjusted year data
             string start = startCell;
-            int rowOffset = 3;
+            //int rowOffset = 3;
             Excel.Range range1 = WS.get_Range(start, missing)
                                 //.get_Offset(rowOffset, 0)
                                 .get_Resize(dt.Rows.Count + 1, dt.Columns.Count);

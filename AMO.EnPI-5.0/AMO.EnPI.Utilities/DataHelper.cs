@@ -497,7 +497,7 @@ namespace AMO.EnPI.AddIn.Utilities
             foreach (DataColumn col in dt.Columns)
             {
                 string colNameclean = CreateValidFormulaName(col.ColumnName);
-                if (col.ExtendedProperties["Tag"] == Constants.COLUMNTAG_DVS)
+                if ((string)col.ExtendedProperties["Tag"] == Constants.COLUMNTAG_DVS)
                 {
                     strTotal += colNameclean + "+";
                 }
@@ -517,7 +517,7 @@ namespace AMO.EnPI.AddIn.Utilities
             nt.TableName = TableName;
             foreach (DataColumn dc in dt.Columns)
             {
-                if (dc.ExtendedProperties["Tag"] == TagName)
+                if ((string)dc.ExtendedProperties["Tag"] == TagName)
                 {
                     DataColumn nc = new DataColumn();
                     nc.ColumnName = dc.ColumnName;
