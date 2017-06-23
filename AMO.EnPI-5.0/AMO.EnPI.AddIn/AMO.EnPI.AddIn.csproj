@@ -281,7 +281,9 @@
     <Compile Include="RollupControl.Designer.cs">
       <DependentUpon>RollupControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnPIRibbon.cs" />
+    <Compile Include="EnPIRibbon.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="EnPIRibbon.designer.cs">
       <DependentUpon>EnPIRibbon.cs</DependentUpon>
     </Compile>
@@ -378,7 +380,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AMO.EnPI.Utilities\AMO.EnPI.AddIn.Utilities.csproj">
-      <Project>{874A2E11-D6F1-4866-89AD-137C73DA4447}</Project>
+      <Project>{874a2e11-d6f1-4866-89ad-137c73da4447}</Project>
       <Name>AMO.EnPI.AddIn.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
