@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Tools.Ribbon;
+//using Microsoft.Office.Tools.Ribbon;
 using AMO.EnPI.AddIn.Utilities;
 using System.Windows.Forms;
 
 namespace AMO.EnPI.AddIn
 {
-    public partial class EnPIRibbon : OfficeRibbon
+    public partial class EnPIRibbon : RibbonBase
     {
         public static System.Resources.ResourceManager rsc = 
             new System.Resources.ResourceManager(
             "AMO.EnPI.AddIn.EnPIResources", System.Reflection.Assembly.GetExecutingAssembly());
 
-        public EnPIRibbon()
+        public EnPIRibbon() : base(Globals.Factory.GetRibbonFactory())
         {
             InitializeComponent();
         }
@@ -23,7 +24,7 @@ namespace AMO.EnPI.AddIn
 
         private void EnPIRibbon_Load(object sender, RibbonUIEventArgs e)
         {
-            this.dropDownYear.SelectionChanged += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.dropDownYear_SelectionChanged);
+            this.dropDownYear.SelectionChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dropDownYear_SelectionChanged);
 
             EnPIRibbon_MenuSetup();
         }
@@ -35,12 +36,12 @@ namespace AMO.EnPI.AddIn
             this.menu1.Label = rsc.GetString("lbl_AddEnergySources");
             foreach (Constants.EnergySourceTypes typ in System.Enum.GetValues(typeof(Constants.EnergySourceTypes)))
             {
-                RibbonButton newButton = new RibbonButton();
+                RibbonButton newButton = this.Factory.CreateRibbonButton();
                 newButton.Name = "btn_" + typ.ToString();
                 string lbl = (rsc.GetString(typ.ToString() + "_btntext")) ?? typ.ToString();
                 newButton.Label = lbl;
                 this.menu1.Items.Add(newButton);
-                newButton.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.buttonAdd_Click);
+                newButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonAdd_Click);
             }
 
 
@@ -49,13 +50,13 @@ namespace AMO.EnPI.AddIn
             this.menu2.Label = rsc.GetString("lbl_AddVariables");
             foreach (Constants.VariableTypes typ in System.Enum.GetValues(typeof(Constants.VariableTypes)))
             {
-                RibbonButton newButton = new RibbonButton();
+                RibbonButton newButton = this.Factory.CreateRibbonButton();
                 newButton.Name = "btn_" + typ.ToString();
                 string lbl = (rsc.GetString(typ.ToString() + "_btntext")) ?? typ.ToString();
                 newButton.Label = lbl;
 
                 this.menu2.Items.Add(newButton);
-                newButton.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.buttonAdd_Click);
+                newButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonAdd_Click);
             }
 
         }

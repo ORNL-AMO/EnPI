@@ -2,3 +2,7 @@ C:\Development\Projects\DOE-AMO-eCenter-SP2010\AMO.EnPI-5.0\alglib\bin\Debug\alg
 C:\Development\Projects\DOE-AMO-eCenter-SP2010\AMO.EnPI-5.0\alglib\bin\Debug\alglib.pdb
 C:\Development\Projects\DOE-AMO-eCenter-SP2010\AMO.EnPI-5.0\alglib\obj\Debug\alglib.dll
 C:\Development\Projects\DOE-AMO-eCenter-SP2010\AMO.EnPI-5.0\alglib\obj\Debug\alglib.pdb
+C:\Users\Public\EnPI\AMO.EnPI-5.0\alglib\bin\Debug\alglib.dll
+C:\Users\Public\EnPI\AMO.EnPI-5.0\alglib\bin\Debug\alglib.pdb
+C:\Users\Public\EnPI\AMO.EnPI-5.0\alglib\obj\Debug\alglib.dll
+C:\Users\Public\EnPI\AMO.EnPI-5.0\alglib\obj\Debug\alglib.pdb

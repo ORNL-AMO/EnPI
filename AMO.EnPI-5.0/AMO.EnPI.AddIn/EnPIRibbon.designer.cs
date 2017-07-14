@@ -28,43 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem1 = new Microsoft.Office.Tools.Ribbon.RibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem2 = new Microsoft.Office.Tools.Ribbon.RibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem3 = new Microsoft.Office.Tools.Ribbon.RibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem4 = new Microsoft.Office.Tools.Ribbon.RibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem5 = new Microsoft.Office.Tools.Ribbon.RibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem6 = new Microsoft.Office.Tools.Ribbon.RibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem7 = new Microsoft.Office.Tools.Ribbon.RibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem8 = new Microsoft.Office.Tools.Ribbon.RibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem9 = new Microsoft.Office.Tools.Ribbon.RibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem10 = new Microsoft.Office.Tools.Ribbon.RibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem11 = new Microsoft.Office.Tools.Ribbon.RibbonDropDownItem();
-            this.tab1 = new Microsoft.Office.Tools.Ribbon.RibbonTab();
-            this.tabEnPI = new Microsoft.Office.Tools.Ribbon.RibbonTab();
-            this.group1 = new Microsoft.Office.Tools.Ribbon.RibbonGroup();
-            this.dropDownYear = new Microsoft.Office.Tools.Ribbon.RibbonDropDown();
-            this.button1 = new Microsoft.Office.Tools.Ribbon.RibbonButton();
-            this.grp_EnergySources = new Microsoft.Office.Tools.Ribbon.RibbonGroup();
-            this.menu1 = new Microsoft.Office.Tools.Ribbon.RibbonMenu();
-            this.grp_Variables = new Microsoft.Office.Tools.Ribbon.RibbonGroup();
-            this.menu2 = new Microsoft.Office.Tools.Ribbon.RibbonMenu();
-            this.Wizard = new Microsoft.Office.Tools.Ribbon.RibbonGroup();
-            this.btnWizard = new Microsoft.Office.Tools.Ribbon.RibbonButton();
-            this.btnOutputWizard = new Microsoft.Office.Tools.Ribbon.RibbonButton();
-            this.UnitConversion = new Microsoft.Office.Tools.Ribbon.RibbonGroup();
-            this.btnConvertUnits = new Microsoft.Office.Tools.Ribbon.RibbonButton();
-            this.LabelReportingPeriod = new Microsoft.Office.Tools.Ribbon.RibbonGroup();
-            this.btnReportingPeriod = new Microsoft.Office.Tools.Ribbon.RibbonButton();
-            this.grp_ComputeEnPI_Actual = new Microsoft.Office.Tools.Ribbon.RibbonGroup();
-            this.btn_Actual = new Microsoft.Office.Tools.Ribbon.RibbonButton();
-            this.grp_ComputeEnPI_Regression = new Microsoft.Office.Tools.Ribbon.RibbonGroup();
-            this.btn_Regression = new Microsoft.Office.Tools.Ribbon.RibbonButton();
-            this.Model = new Microsoft.Office.Tools.Ribbon.RibbonGroup();
-            this.btnModelChange = new Microsoft.Office.Tools.Ribbon.RibbonButton();
-            this.Rollup = new Microsoft.Office.Tools.Ribbon.RibbonGroup();
-            this.btnRollup = new Microsoft.Office.Tools.Ribbon.RibbonButton();
-            this.group2 = new Microsoft.Office.Tools.Ribbon.RibbonGroup();
-            this.btnAbout = new Microsoft.Office.Tools.Ribbon.RibbonButton();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem1 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem2 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem3 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem4 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem5 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem6 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem7 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem8 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem9 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem10 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItem11 = this.Factory.CreateRibbonDropDownItem();
+            this.tab1 = this.Factory.CreateRibbonTab();
+            this.tabEnPI = this.Factory.CreateRibbonTab();
+            this.group1 = this.Factory.CreateRibbonGroup();
+            this.dropDownYear = this.Factory.CreateRibbonDropDown();
+            this.button1 = this.Factory.CreateRibbonButton();
+            this.grp_EnergySources = this.Factory.CreateRibbonGroup();
+            this.menu1 = this.Factory.CreateRibbonMenu();
+            this.grp_Variables = this.Factory.CreateRibbonGroup();
+            this.menu2 = this.Factory.CreateRibbonMenu();
+            this.Wizard = this.Factory.CreateRibbonGroup();
+            this.btnWizard = this.Factory.CreateRibbonButton();
+            this.btnOutputWizard = this.Factory.CreateRibbonButton();
+            this.UnitConversion = this.Factory.CreateRibbonGroup();
+            this.btnConvertUnits = this.Factory.CreateRibbonButton();
+            this.LabelReportingPeriod = this.Factory.CreateRibbonGroup();
+            this.btnReportingPeriod = this.Factory.CreateRibbonButton();
+            this.grp_ComputeEnPI_Actual = this.Factory.CreateRibbonGroup();
+            this.btn_Actual = this.Factory.CreateRibbonButton();
+            this.grp_ComputeEnPI_Regression = this.Factory.CreateRibbonGroup(); 
+            this.btn_Regression = this.Factory.CreateRibbonButton();
+            this.Model = this.Factory.CreateRibbonGroup();
+            this.btnModelChange = this.Factory.CreateRibbonButton();
+            this.Rollup = this.Factory.CreateRibbonGroup();
+            this.btnRollup = this.Factory.CreateRibbonButton();
+            this.group2 = this.Factory.CreateRibbonGroup();
+            this.btnAbout = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.tabEnPI.SuspendLayout();
             this.group1.SuspendLayout();
@@ -189,14 +189,14 @@
             // 
             this.btnWizard.Label = "EnPI Step-by-step Wizard";
             this.btnWizard.Name = "btnWizard";
-            this.btnWizard.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.btnWizard_Click);
+            this.btnWizard.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnWizard_Click);
             // 
             // btnOutputWizard
             // 
             this.btnOutputWizard.Label = "EnPI Output Wizard";
             this.btnOutputWizard.Name = "btnOutputWizard";
             this.btnOutputWizard.Visible = false;
-            this.btnOutputWizard.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.btnOutputWizard_Click);
+            this.btnOutputWizard.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnOutputWizard_Click);
             // 
             // UnitConversion
             // 
@@ -208,7 +208,7 @@
             // 
             this.btnConvertUnits.Label = "Convert Units";
             this.btnConvertUnits.Name = "btnConvertUnits";
-            this.btnConvertUnits.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.btnConvertUnits_Click);
+            this.btnConvertUnits.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnConvertUnits_Click);
             // 
             // LabelReportingPeriod
             // 
@@ -220,7 +220,7 @@
             // 
             this.btnReportingPeriod.Label = "Label Reporting Period";
             this.btnReportingPeriod.Name = "btnReportingPeriod";
-            this.btnReportingPeriod.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.btnReportingPeriod_Click);
+            this.btnReportingPeriod.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnReportingPeriod_Click);
             // 
             // grp_ComputeEnPI_Actual
             // 
@@ -232,7 +232,7 @@
             // 
             this.btn_Actual.Label = "Use Actual Data";
             this.btn_Actual.Name = "btn_Actual";
-            this.btn_Actual.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.btn_Actual_Click);
+            this.btn_Actual.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_Actual_Click);
             // 
             // grp_ComputeEnPI_Regression
             // 
@@ -244,7 +244,7 @@
             // 
             this.btn_Regression.Label = "Use Regression";
             this.btn_Regression.Name = "btn_Regression";
-            this.btn_Regression.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.btn_Backcast_Click);
+            this.btn_Regression.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_Backcast_Click);
             // 
             // Model
             // 
@@ -256,7 +256,7 @@
             // 
             this.btnModelChange.Label = "Change Models";
             this.btnModelChange.Name = "btnModelChange";
-            this.btnModelChange.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.btnModelChange_Click);
+            this.btnModelChange.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnModelChange_Click);
             // 
             // Rollup
             // 
@@ -268,7 +268,7 @@
             // 
             this.btnRollup.Label = "Corporate Roll Up";
             this.btnRollup.Name = "btnRollup";
-            this.btnRollup.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.btnRollup_Click);
+            this.btnRollup.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnRollup_Click);
             // 
             // group2
             // 
@@ -280,7 +280,7 @@
             // 
             this.btnAbout.Label = "About EnPI";
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.btnAbout_Click);
+            this.btnAbout.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAbout_Click);
             // 
             // EnPIRibbon
             // 
@@ -288,7 +288,7 @@
             this.RibbonType = "Microsoft.Excel.Workbook";
             this.Tabs.Add(this.tab1);
             this.Tabs.Add(this.tabEnPI);
-            this.Load += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonUIEventArgs>(this.EnPIRibbon_Load);
+            this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.EnPIRibbon_Load);
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
             this.tabEnPI.ResumeLayout(false);

@@ -285,7 +285,7 @@ namespace AMO.EnPI.AddIn.Utilities
         public int OutlierCount()
         {
             int ct = 0;
-            double mn;
+            //double mn;
             string expr;
             string fltr;
             string col;

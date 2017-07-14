@@ -20,7 +20,7 @@ namespace AMO.EnPI.AddIn
         RegressionControl parentControl;
         CheckedListBox parentCheckListBox;
         ControlCollection parentControls;
-        bool isCO2EmissionChecked;
+        //bool isCO2EmissionChecked;
 
         public EnergyCostControl(RegressionControl parentControl)
         {

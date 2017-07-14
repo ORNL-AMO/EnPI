@@ -8,3 +8,13 @@ C:\Development\Projects\DOE-AMO-eCenter-SP2010\AMO.EnPI-5.0\AMO.EnPI.Utilities\o
 C:\Development\Projects\DOE-AMO-eCenter-SP2010\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Debug\AMO.EnPI.AddIn.Utilities.csproj.GenerateResource.Cache
 C:\Development\Projects\DOE-AMO-eCenter-SP2010\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Debug\AMO.EnPI.AddIn.Utilities.dll
 C:\Development\Projects\DOE-AMO-eCenter-SP2010\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Debug\AMO.EnPI.AddIn.Utilities.pdb
+C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\bin\Debug\AMO.EnPI.AddIn.Utilities.dll.config
+C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\bin\Debug\AMO.EnPI.AddIn.Utilities.dll
+C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\bin\Debug\AMO.EnPI.AddIn.Utilities.pdb
+C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\bin\Debug\alglib.dll
+C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\bin\Debug\alglib.pdb
+C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Debug\AMO.EnPI.AddIn.Utilities.csprojResolveAssemblyReference.cache
+C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Debug\AMO.EnPI.AddIn.Utilities.EnPIResources.resources
+C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Debug\AMO.EnPI.AddIn.Utilities.csproj.GenerateResource.Cache
+C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Debug\AMO.EnPI.AddIn.Utilities.dll
+C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Debug\AMO.EnPI.AddIn.Utilities.pdb

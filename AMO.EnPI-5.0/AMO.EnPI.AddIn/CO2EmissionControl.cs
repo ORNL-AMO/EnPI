@@ -237,7 +237,7 @@ namespace AMO.EnPI.AddIn
         private int AddControls(int biggap, int smallgap,int bottom, object obj)
         {
 
-            int right = 115;
+            //int right = 115;
             int left = 5;
             Label lbl = new Label();
             lbl.Name = STR_LBL_PREFIX + obj.ToString();
