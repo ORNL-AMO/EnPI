@@ -48,37 +48,37 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="alglib.dll" size="930816">
-      <assemblyIdentity name="alglib" version="1.0.6403.25369" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="alglib" version="1.0.6415.25040" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FHYym5TzQo2nnHalZl7WNipq4QqY4qM8lyEzPxWWasg=</dsig:DigestValue>
+        <dsig:DigestValue>3taHXAKBbLzuWrQdoNf1WoeROkqM7z1FdGE9jsyLLxo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AMO.EnPI.AddIn.dll" size="458240">
-      <assemblyIdentity name="AMO.EnPI.AddIn" version="1.0.6403.25370" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AMO.EnPI.AddIn.dll" size="457728">
+      <assemblyIdentity name="AMO.EnPI.AddIn" version="1.0.6415.25041" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wa1N3WbWNLOuhOwf+LAWZ9t0HKznWz5OXrBgBjhxlvc=</dsig:DigestValue>
+        <dsig:DigestValue>TnWEIMyoCGyNzQCanI/1Xwv7QlEr31XcVVk381bcbxM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AMO.EnPI.AddIn.Utilities.dll" size="122368">
-      <assemblyIdentity name="AMO.EnPI.AddIn.Utilities" version="1.0.6403.25370" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AMO.EnPI.AddIn.Utilities.dll" size="121856">
+      <assemblyIdentity name="AMO.EnPI.AddIn.Utilities" version="1.0.6415.25041" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rsA7NwTeBmgGAB032BYZTZ9qtJ8LrYXp+kZctrMBQJI=</dsig:DigestValue>
+        <dsig:DigestValue>f11dyckDmBDBVGy6uEitmmH0DFzvJg1zDgKtjqmQegI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -170,7 +170,7 @@
     <vstav3:entryPointsCollection>
       <vstav3:entryPoints>
         <vstav3:entryPoint class="AMO.EnPI.AddIn.ThisAddIn">
-          <assemblyIdentity name="AMO.EnPI.AddIn" version="1.0.6403.25370" language="neutral" processorArchitecture="msil" />
+          <assemblyIdentity name="AMO.EnPI.AddIn" version="1.0.6415.25041" language="neutral" processorArchitecture="msil" />
         </vstav3:entryPoint>
       </vstav3:entryPoints>
     </vstav3:entryPointsCollection>
@@ -184,11 +184,11 @@
             <vstov4:friendlyName>AMO.EnPI.AddIn</vstov4:friendlyName>
             <vstov4:description>AMO.EnPI.AddIn</vstov4:description>
             <vstov4.1:ribbonTypes xmlns:vstov4.1="urn:schemas-microsoft-com:vsto.v4.1">
-              <vstov4.1:ribbonType name="AMO.EnPI.AddIn.EnPIRibbon, AMO.EnPI.AddIn, Version=1.0.6403.25370, Culture=neutral, PublicKeyToken=null" />
+              <vstov4.1:ribbonType name="AMO.EnPI.AddIn.EnPIRibbon, AMO.EnPI.AddIn, Version=1.0.6415.25041, Culture=neutral, PublicKeyToken=null" />
             </vstov4.1:ribbonTypes>
           </vstov4:appAddIn>
         </vstov4:customization>
       </vstov4:customizations>
     </vstav3:application>
   </vstav3:addIn>
-<publisherIdentity name="CN=STERLING1\rachel beadie" issuerKeyHash="d2f2723336fbad40b4003e5b6735ec4a87dbd74b" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>YQDUlLISYTDcj2Xzk5bK/rKvjbs=</DigestValue></Reference></SignedInfo><SignatureValue>xPWRnE8d/ysTT80KvB9/E3sqwHzZ5lfQ3GjgfhkjxHFe7CGtYLbqeD53Pu2ETuT+Z/Yjo3PNrWrKL9Au1xkhgjHk50CH9yEuxKjB0E7JW8cmTqC44d0TJjbhMFMnfIrInS0GnhbmNPwcUuMC1aDa306QiXuSUPCo3mRnB02cqOw=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>+CJQyATKHd4eTOFwuDxw9FnZyoEDyjVtwRtTZNTvC/V3N2aJJHsOZNhfRYrUqd67p86WzJp37NjXMPjKS3m+RoCYoU9la/arPdFHuICkzlDypcjxFKsRBZCKDr4j1EQ4vT9s7HlDv8z1hj+VHnzkMe+iGeU1XNeDBcGoeIexiS0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="bb8dafb2feca9693f3658fdc306112b294d40061" Description="" Url=""><as:assemblyIdentity name="AMO.EnPI.AddIn.dll" version="1.0.0.0" publicKeyToken="81b596b8bb373db8" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=STERLING1\rachel beadie</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>M+gylyCz42qQM8hitViHRUMLPU0=</DigestValue></Reference></SignedInfo><SignatureValue>CUcvmnM7BkFel1ubKeqFdNaR4/gSR24cbqByXgmmUMGdREvOVke7Un2+98KzzETtshz2n9xBiW1n0W5T8U6pV1LqqgOM+Hld83KYcbYdOBgF9Rzefa0QEzMCZRp4O0P+SobEI4UfOKBt88B1NehClC6NQSxq5N9aR0x3/N45c/8=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>+CJQyATKHd4eTOFwuDxw9FnZyoEDyjVtwRtTZNTvC/V3N2aJJHsOZNhfRYrUqd67p86WzJp37NjXMPjKS3m+RoCYoU9la/arPdFHuICkzlDypcjxFKsRBZCKDr4j1EQ4vT9s7HlDv8z1hj+VHnzkMe+iGeU1XNeDBcGoeIexiS0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB9TCCAV6gAwIBAgIQGuwDNt4PfI9A7fCS8RShyDANBgkqhkiG9w0BAQUFADA5MTcwNQYDVQQDHi4AUwBUAEUAUgBMAEkATgBHADEAXAByAGEAYwBoAGUAbAAgAGIAZQBhAGQAaQBlMB4XDTEyMDUwMzE4MTgyM1oXDTEzMDUwNDAwMTgyM1owOTE3MDUGA1UEAx4uAFMAVABFAFIATABJAE4ARwAxAFwAcgBhAGMAaABlAGwAIABiAGUAYQBkAGkAZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA+CJQyATKHd4eTOFwuDxw9FnZyoEDyjVtwRtTZNTvC/V3N2aJJHsOZNhfRYrUqd67p86WzJp37NjXMPjKS3m+RoCYoU9la/arPdFHuICkzlDypcjxFKsRBZCKDr4j1EQ4vT9s7HlDv8z1hj+VHnzkMe+iGeU1XNeDBcGoeIexiS0CAwEAATANBgkqhkiG9w0BAQUFAAOBgQC3qx5TqrJ8BZBCyeMFtFttxdLHVR6a5ZMyjK+9y2nnKxyk0S+LmQul2cL3303g+LKH/uAQWPxXfxxqhpK8xA4emvIXrZEbVulqQHk4uIdpDH7IyONFzDNL4FboYXQj9xkp2hpfug/XsA3ZKlt6L5dUo5Iva48XfeUnYH7SexPYfA==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+<publisherIdentity name="CN=STERLING1\rachel beadie" issuerKeyHash="d2f2723336fbad40b4003e5b6735ec4a87dbd74b" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>2t4ZWf7Ih1dhtRr02aEhhr9X/JY=</DigestValue></Reference></SignedInfo><SignatureValue>b9MCRtd/vHItVpa5mGTkPsK37OLeYDp3aMyflOoNqYX9sKi8U3hlEpUhr6Ku0NUrgziu/v4sP1tLs9mAwIjQ2AQEOIjIbYxb1/pfXNxlLYNvyPiltZGT5yzDWhDs5hJm/gtDrUDMUL3ejkPn6TYT8cPANlArNOoxOx0NtXazc34=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>+CJQyATKHd4eTOFwuDxw9FnZyoEDyjVtwRtTZNTvC/V3N2aJJHsOZNhfRYrUqd67p86WzJp37NjXMPjKS3m+RoCYoU9la/arPdFHuICkzlDypcjxFKsRBZCKDr4j1EQ4vT9s7HlDv8z1hj+VHnzkMe+iGeU1XNeDBcGoeIexiS0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="96fc57bf8621a1d9f41ab5615787c8fe5919deda" Description="" Url=""><as:assemblyIdentity name="AMO.EnPI.AddIn.dll" version="1.0.0.0" publicKeyToken="81b596b8bb373db8" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=STERLING1\rachel beadie</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>wVhI2uCrS4N6nyWdhTmckEGNaIU=</DigestValue></Reference></SignedInfo><SignatureValue>jewhTCCiydyMLr54QK42MexYhzrXuQ413Adcdehax9xAZE3QOs7sfI1V6ZiUl1FPsakqYd6PvaOIw2844zLacFebK0lax0T7Tj5pCl5yt9w7dKG32mvt2Ilm2XGCmOcfoNAZbNvMlkB+PZtQHyzpFcq+WJRwZJmFQm3j01nBKr0=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>+CJQyATKHd4eTOFwuDxw9FnZyoEDyjVtwRtTZNTvC/V3N2aJJHsOZNhfRYrUqd67p86WzJp37NjXMPjKS3m+RoCYoU9la/arPdFHuICkzlDypcjxFKsRBZCKDr4j1EQ4vT9s7HlDv8z1hj+VHnzkMe+iGeU1XNeDBcGoeIexiS0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB9TCCAV6gAwIBAgIQGuwDNt4PfI9A7fCS8RShyDANBgkqhkiG9w0BAQUFADA5MTcwNQYDVQQDHi4AUwBUAEUAUgBMAEkATgBHADEAXAByAGEAYwBoAGUAbAAgAGIAZQBhAGQAaQBlMB4XDTEyMDUwMzE4MTgyM1oXDTEzMDUwNDAwMTgyM1owOTE3MDUGA1UEAx4uAFMAVABFAFIATABJAE4ARwAxAFwAcgBhAGMAaABlAGwAIABiAGUAYQBkAGkAZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA+CJQyATKHd4eTOFwuDxw9FnZyoEDyjVtwRtTZNTvC/V3N2aJJHsOZNhfRYrUqd67p86WzJp37NjXMPjKS3m+RoCYoU9la/arPdFHuICkzlDypcjxFKsRBZCKDr4j1EQ4vT9s7HlDv8z1hj+VHnzkMe+iGeU1XNeDBcGoeIexiS0CAwEAATANBgkqhkiG9w0BAQUFAAOBgQC3qx5TqrJ8BZBCyeMFtFttxdLHVR6a5ZMyjK+9y2nnKxyk0S+LmQul2cL3303g+LKH/uAQWPxXfxxqhpK8xA4emvIXrZEbVulqQHk4uIdpDH7IyONFzDNL4FboYXQj9xkp2hpfug/XsA3ZKlt6L5dUo5Iva48XfeUnYH7SexPYfA==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
