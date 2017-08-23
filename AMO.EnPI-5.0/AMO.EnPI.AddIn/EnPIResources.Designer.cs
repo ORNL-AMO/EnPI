@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AMO.EnPI.AddIn.Utilities {
+namespace AMO.EnPI.AddIn {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace AMO.EnPI.AddIn.Utilities {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AMO.EnPI.AddIn.Utilities.EnPIResources", typeof(EnPIResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AMO.EnPI.AddIn.EnPIResources", typeof(EnPIResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
