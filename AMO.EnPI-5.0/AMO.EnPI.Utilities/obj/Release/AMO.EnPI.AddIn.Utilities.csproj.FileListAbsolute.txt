@@ -8,13 +8,3 @@ C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Release\AMO.EnPI.AddIn.
 C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Release\AMO.EnPI.AddIn.Utilities.csproj.GenerateResource.Cache
 C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Release\AMO.EnPI.AddIn.Utilities.dll
 C:\Users\Public\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Release\AMO.EnPI.AddIn.Utilities.pdb
-C:\Users\Gia\Source\Repos\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\bin\Release\AMO.EnPI.AddIn.Utilities.dll.config
-C:\Users\Gia\Source\Repos\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\bin\Release\AMO.EnPI.AddIn.Utilities.dll
-C:\Users\Gia\Source\Repos\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\bin\Release\AMO.EnPI.AddIn.Utilities.pdb
-C:\Users\Gia\Source\Repos\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\bin\Release\alglib.dll
-C:\Users\Gia\Source\Repos\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\bin\Release\alglib.pdb
-C:\Users\Gia\Source\Repos\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Release\AMO.EnPI.AddIn.Utilities.csprojResolveAssemblyReference.cache
-C:\Users\Gia\Source\Repos\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Release\AMO.EnPI.AddIn.Utilities.EnPIResources.resources
-C:\Users\Gia\Source\Repos\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Release\AMO.EnPI.AddIn.Utilities.csproj.GenerateResource.Cache
-C:\Users\Gia\Source\Repos\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Release\AMO.EnPI.AddIn.Utilities.dll
-C:\Users\Gia\Source\Repos\EnPI\AMO.EnPI-5.0\AMO.EnPI.Utilities\obj\Release\AMO.EnPI.AddIn.Utilities.pdb
