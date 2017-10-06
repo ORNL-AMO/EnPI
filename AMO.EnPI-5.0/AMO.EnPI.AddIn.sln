@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMO.EnPI.AddIn", "AMO.EnPI.AddIn\AMO.EnPI.AddIn.csproj", "{4EAD224F-2DF5-4A87-8716-3978981AF386}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMO.EnPI.AddIn.Utilities", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "alglib", "alglib\alglib.csproj", "{64A4E038-A7CA-48DA-9B23-B87284BC061A}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{E19D64CC-18BD-44E6-ACEB-BCA84756190F}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{B8C2805B-8D2E-4AF4-BEAC-6B5E7B4B043B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,10 +44,10 @@ Global
 		{64A4E038-A7CA-48DA-9B23-B87284BC061A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64A4E038-A7CA-48DA-9B23-B87284BC061A}.Release|x86.ActiveCfg = Release|x86
 		{64A4E038-A7CA-48DA-9B23-B87284BC061A}.Release|x86.Build.0 = Release|x86
-		{E19D64CC-18BD-44E6-ACEB-BCA84756190F}.Debug|Any CPU.ActiveCfg = Debug
-		{E19D64CC-18BD-44E6-ACEB-BCA84756190F}.Debug|x86.ActiveCfg = Debug
-		{E19D64CC-18BD-44E6-ACEB-BCA84756190F}.Release|Any CPU.ActiveCfg = Release
-		{E19D64CC-18BD-44E6-ACEB-BCA84756190F}.Release|x86.ActiveCfg = Release
+		{B8C2805B-8D2E-4AF4-BEAC-6B5E7B4B043B}.Debug|Any CPU.ActiveCfg = Debug
+		{B8C2805B-8D2E-4AF4-BEAC-6B5E7B4B043B}.Debug|x86.ActiveCfg = Debug
+		{B8C2805B-8D2E-4AF4-BEAC-6B5E7B4B043B}.Release|Any CPU.ActiveCfg = Release
+		{B8C2805B-8D2E-4AF4-BEAC-6B5E7B4B043B}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

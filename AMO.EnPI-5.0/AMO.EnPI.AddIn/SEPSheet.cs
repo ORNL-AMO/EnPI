@@ -353,7 +353,7 @@ namespace AMO.EnPI.AddIn
             ((Excel.Range)newRow5.Range).Cells.Interior.Color = 0xFFFFFF;
             ((Excel.Range)newRow5.Range[1, 1]).Cells.Interior.Color = 0x28624F;
 
-            int modelIndex = 0;
+            int modelIndex = 2;
             foreach (Excel.ListColumn LC in SummaryData.ListColumns)
             {
                 int index = LC.Index;
@@ -376,7 +376,7 @@ namespace AMO.EnPI.AddIn
                 newRow5.Range.NumberFormat = "###,##0";
             }
 
-            ((Excel.Range)newRow5.Range[1, modelIndex]).Value2 = Globals.ThisAddIn.rsc.GetString("adjustmentModel");
+            ((Excel .Range)newRow5.Range[1, modelIndex]).Value2 = Globals.ThisAddIn.rsc.GetString("adjustmentModel");
 
             ((Excel.Range)newRow5.Range[1, 1]).Value2 = strAdjustmentMethodColName;
 
