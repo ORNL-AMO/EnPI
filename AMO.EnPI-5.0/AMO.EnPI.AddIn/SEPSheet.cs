@@ -353,7 +353,7 @@ namespace AMO.EnPI.AddIn
             ((Excel.Range)newRow5.Range).Cells.Interior.Color = 0xFFFFFF;
             ((Excel.Range)newRow5.Range[1, 1]).Cells.Interior.Color = 0x28624F;
 
-            int modelIndex = 2;
+            int modelIndex = 3;
             foreach (Excel.ListColumn LC in SummaryData.ListColumns)
             {
                 int index = LC.Index;
