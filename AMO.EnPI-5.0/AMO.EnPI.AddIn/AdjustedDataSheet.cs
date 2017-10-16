@@ -1187,8 +1187,19 @@ namespace AMO.EnPI.AddIn
                                    (oSEPVal.Minus3DevVal < oSEPVal.AvgBaselineYr &&
                                     oSEPVal.AvgBaselineYr < oSEPVal.Plus3DevVal)))
                         {
-                            avgCompareYear = Convert.ToInt32(oSEPVal.AvgReportYr).ToString() + " or " +
+                            avgCompareYear = Convert.ToInt32(oSEPVal.AvgReportYr).ToString() + " and " +
                                              Convert.ToInt32(oSEPVal.AvgBaselineYr).ToString();
+
+                        }
+
+                        else if (((oSEPVal.MinModel < oSEPVal.AvgReportYr && oSEPVal.AvgReportYr < oSEPVal.MaxModel) ||
+                                  (oSEPVal.Minus3DevVal < oSEPVal.AvgReportYr &&
+                                   oSEPVal.AvgReportYr < oSEPVal.Plus3DevVal)) &&
+                                 !((oSEPVal.MinModel < oSEPVal.AvgBaselineYr && oSEPVal.AvgBaselineYr < oSEPVal.MaxModel) ||
+                                   (oSEPVal.Minus3DevVal < oSEPVal.AvgBaselineYr &&
+                                    oSEPVal.AvgBaselineYr < oSEPVal.Plus3DevVal)))
+                        {
+                            avgCompareYear = Convert.ToInt32(oSEPVal.AvgBaselineYr).ToString();
 
                         }
                     }
@@ -1355,23 +1366,28 @@ namespace AMO.EnPI.AddIn
 
                 //return false;
             }
-            
+
             //else if (avrg < minModel || avrg > maxModel)
             //{
-                //check against 3 * std dev
-           
+            //check against 3 * std dev
+
             //else
-              //  return false;
+            //  return false;
             //}
             //else
-              //  return false;
+            //  return false;
             //if (retVal == true)
             //{
-            
-                lstWarningValidationValues.Add(new SEPValidationValues(independentVariable,varIndex, yearIndex, minModel, avgReportYr,avgBaselineYr, maxModel, (forStdDev.Average() - 3 * ArrayStdDev(forStdDev)), (forStdDev.Average() + 3 * ArrayStdDev(forStdDev)),sepValidationCheck,retVal));
-                
+            if (!backcast)
+            {
+                lstWarningValidationValues.Add(new SEPValidationValues(independentVariable, varIndex, yearIndex, minModel, avgReportYr, avgBaselineYr, maxModel, (forStdDev.Average() - 3 * ArrayStdDev(forStdDev)), (forStdDev.Average() + 3 * ArrayStdDev(forStdDev)), sepValidationCheck, retVal));
+            }
+            else
+            {
+                lstWarningValidationValues.Add(new SEPValidationValues(independentVariable, varIndex, yearIndex, minModelBackcast, avgReportYr, avgBaselineYr, maxModelBackcast, (forStdDev.Average() - 3 * ArrayStdDev(forStdDev)), (forStdDev.Average() + 3 * ArrayStdDev(forStdDev)), sepValidationCheck, retVal));
+            }
             //}
-           
+
 
             return retVal;
         }
