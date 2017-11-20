@@ -33,11 +33,11 @@ If you have issues downloading or running the tool, please contact the AMO Help 
 
 1.	If the calculate button fails to run the program, check the variable names to ensure that they are appropriate (e.g., no returns in column headers, etc.).
 2.	If cannot switch model:
-  	Save your work (in all open Excel Workbooks)
-  	Close Excel
-  	Open Task Manager
-  	Navigate to the “Details” Tab
-  	Locate and select EXCEL.EXE and end task
-  	NOTE: this will force close all running Excel windows
+  	- Save your work (in all open Excel Workbooks)
+  	- Close Excel
+  	- Open Task Manager
+  	- Navigate to the “Details” Tab
+  	- Locate and select EXCEL.EXE and end task
+  	- NOTE: this will force close all running Excel windows
 3. If the tool is run in Office 2013, the wizard may flash once when first opened
 
