@@ -28,3 +28,16 @@ The tool identifies key variables affecting facility energy performance and calc
 Many companies have policies that prevent installation of external software components. Use of the EnPI tool requires a download of software to your computer. If you have difficulty downloading the EnPI tool, please send the following description of the EnPI tool (software) to your IT team to request assistance.
 The EnPI tool is a standard executable Microsoft Excel COM add-in, which uses Microsoft Office libraries. The tool is downloaded from the Department of Energy (DOE) Energy Resource Center . The eCenter is a secure site and all tools located on the site are compliant with DOE’s security policies.
 If you have issues downloading or running the tool, please contact the AMO Help Desk at AMO_ToolHelpDesk@ee.doe.gov.
+
+# Known Issues
+
+1.	If the calculate button fails to run the program, check the variable names to ensure that they are appropriate (e.g., no returns in column headers, etc.).
+2.	If cannot switch model:
+  	Save your work (in all open Excel Workbooks)
+  	Close Excel
+  	Open Task Manager
+  	Navigate to the “Details” Tab
+  	Locate and select EXCEL.EXE and end task
+  	NOTE: this will force close all running Excel windows
+3. If the tool is run in Office 2013, the wizard may flash once when first opened
+
