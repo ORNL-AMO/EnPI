@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms.VisualStyles;
 using Excel = Microsoft.Office.Interop.Excel;
 using AMO.EnPI.AddIn.Utilities;
 using Microsoft.Office.Interop.Excel;
@@ -285,6 +286,9 @@ namespace AMO.EnPI.AddIn
             label6.Value2 = "SEP Validation Check";
             //Excel.Range range1Formatting = thisSheet.get_Range("A7").get_Resize(2,cols);
             //Excel.Range range1Formatting = thisSheet.get_Range("A8").get_Resize(2, cols);
+            
+
+            thisSheet.Range["A13"].Style.HorizontalAlignment = HorizontalAlign.Right; // SEP Validation "Fail" or "Pass" aligment
             Excel.Range range1Formatting = thisSheet.get_Range("A9").get_Resize(2, cols);
             range1Formatting.Cells.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);
             //Excel.Range range2Formatting = thisSheet.get_Range("A9").get_Resize(2, cols);
@@ -1219,7 +1223,7 @@ namespace AMO.EnPI.AddIn
 
 
 
-                    Globals.ThisAddIn.sepValidationWarningMsg = "Warning: The mean of the cells highlighted in red on the “Model Data” sheet (" + avgCompareYear + ") are out of the allowable range of the model year values (min, max = " + minmaxModel + " ; mean +/-3 std. dev. = " + plusminusSTDDev + " ). Meaning, the model cannot be used to predict the energy use for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in red in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.";
+                    Globals.ThisAddIn.sepValidationWarningMsg = "Warning: The mean of the cells highlighted in red on the “Model Data” sheet (" + avgCompareYear + ") are out of the allowable range of the model year values (min, max = " + minmaxModel + " ; mean +/-3 std. dev. = " + plusminusSTDDev + " ). Meaning, the model cannot be used to predict the energy consumption for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in red in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.";
                     Globals.ThisAddIn.hasSEPValidationError = true;
                     
                 }
@@ -1231,19 +1235,19 @@ namespace AMO.EnPI.AddIn
             if (Globals.ThisAddIn.hasSEPValidationError)
             {
                 //text changed per ticket #66441
-                //Warnings.Add("Warning: The cells highlighted in red are out of the allowable range of the model year values. Meaning, the model cannot be used to predict the energy use for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.");
+                //Warnings.Add("Warning: The cells highlighted in red are out of the allowable range of the model year values. Meaning, the model cannot be used to predict the energy consumption for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.");
                 //Warnings.Add("Warning: The cells highlighted in red are out of the allowable range of the model year values. If the model is being evaluated during a period where it is not valid, please use a different model adjustment application method.");
-               // string minmaxModel = string.Empty;
-               // string plusminusSTDDev = string.Empty;
-               // string avgReportYear = string.Empty;
-               //// for (int cnt = 0; cnt < lstWarningValidationValues.Count; cnt++)
-               // if(lstWarningValidationValues.Count >0)
-               // {
-               //     minmaxModel =  Convert.ToInt32(lstWarningValidationValues[0].MinModel).ToString() + " , " + Convert.ToInt32(lstWarningValidationValues[0].MaxModel).ToString();
-               //     plusminusSTDDev =  Convert.ToInt32(lstWarningValidationValues[0].Minus3DevVal).ToString() + " , " + Convert.ToInt32(lstWarningValidationValues[0].Plus3DevVal).ToString();
-               //     avgReportYear =  Convert.ToInt32(lstWarningValidationValues[0].AvgReportYr).ToString();
-               // }
-               // Globals.ThisAddIn.sepValidationWarningMsg = "Warning: The mean of the cells highlighted in red on the “Model Data” sheet (" + avgReportYear + ") are out of the allowable range of the model year values (min, max = " + minmaxModel + " ; mean +/-3 std. dev. = " + plusminusSTDDev + " ). Meaning, the model cannot be used to predict the energy use for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in red in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.";
+                // string minmaxModel = string.Empty;
+                // string plusminusSTDDev = string.Empty;
+                // string avgReportYear = string.Empty;
+                //// for (int cnt = 0; cnt < lstWarningValidationValues.Count; cnt++)
+                // if(lstWarningValidationValues.Count >0)
+                // {
+                //     minmaxModel =  Convert.ToInt32(lstWarningValidationValues[0].MinModel).ToString() + " , " + Convert.ToInt32(lstWarningValidationValues[0].MaxModel).ToString();
+                //     plusminusSTDDev =  Convert.ToInt32(lstWarningValidationValues[0].Minus3DevVal).ToString() + " , " + Convert.ToInt32(lstWarningValidationValues[0].Plus3DevVal).ToString();
+                //     avgReportYear =  Convert.ToInt32(lstWarningValidationValues[0].AvgReportYr).ToString();
+                // }
+                // Globals.ThisAddIn.sepValidationWarningMsg = "Warning: The mean of the cells highlighted in red on the “Model Data” sheet (" + avgReportYear + ") are out of the allowable range of the model year values (min, max = " + minmaxModel + " ; mean +/-3 std. dev. = " + plusminusSTDDev + " ). Meaning, the model cannot be used to predict the energy consumption for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in red in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.";
                 Warnings.Add(Globals.ThisAddIn.sepValidationWarningMsg);
             }
         }
