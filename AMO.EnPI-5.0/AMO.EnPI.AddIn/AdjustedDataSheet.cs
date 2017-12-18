@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms.VisualStyles;
 using Excel = Microsoft.Office.Interop.Excel;
 using AMO.EnPI.AddIn.Utilities;
 using Microsoft.Office.Interop.Excel;
@@ -285,6 +286,9 @@ namespace AMO.EnPI.AddIn
             label6.Value2 = "SEP Validation Check";
             //Excel.Range range1Formatting = thisSheet.get_Range("A7").get_Resize(2,cols);
             //Excel.Range range1Formatting = thisSheet.get_Range("A8").get_Resize(2, cols);
+            
+
+            thisSheet.Range["A13"].Style.HorizontalAlignment = HorizontalAlign.Right; // SEP Validation "Fail" or "Pass" aligment
             Excel.Range range1Formatting = thisSheet.get_Range("A9").get_Resize(2, cols);
             range1Formatting.Cells.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);
             //Excel.Range range2Formatting = thisSheet.get_Range("A9").get_Resize(2, cols);
@@ -1156,12 +1160,70 @@ namespace AMO.EnPI.AddIn
                 {
                     string minmaxModel = string.Empty;
                     string plusminusSTDDev = string.Empty;
-                    string avgReportYear = string.Empty;
+                    string avgCompareYear = string.Empty;
 
-                    minmaxModel = Convert.ToInt32(oSEPVal.MinModel).ToString() + " , " + Convert.ToInt32(oSEPVal.MaxModel).ToString();
-                    plusminusSTDDev = Convert.ToInt32(oSEPVal.Minus3DevVal).ToString() + " , " + Convert.ToInt32(oSEPVal.Plus3DevVal).ToString();
-                    avgReportYear = Convert.ToInt32(oSEPVal.AvgReportYr).ToString();
-                    Globals.ThisAddIn.sepValidationWarningMsg = "Warning: The mean of the cells highlighted in red on the “Model Data” sheet (" + avgReportYear + ") are out of the allowable range of the model year values (min, max = " + minmaxModel + " ; mean +/-3 std. dev. = " + plusminusSTDDev + " ). Meaning, the model cannot be used to predict the energy use for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in red in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.";
+                    minmaxModel = Convert.ToInt32(oSEPVal.MinModel).ToString() + " , " +
+                                  Convert.ToInt32(oSEPVal.MaxModel).ToString();
+                    plusminusSTDDev = Convert.ToInt32(oSEPVal.Minus3DevVal).ToString() + " , " +
+                                      Convert.ToInt32(oSEPVal.Plus3DevVal).ToString();
+
+                    //forecast
+                    if (!backcast)
+                    {
+                        if (!((oSEPVal.MinModel < oSEPVal.AvgReportYr && oSEPVal.AvgReportYr < oSEPVal.MaxModel) ||
+                              (oSEPVal.Minus3DevVal < oSEPVal.AvgReportYr &&
+                               oSEPVal.AvgReportYr < oSEPVal.Plus3DevVal)) &&
+                            ((oSEPVal.MinModel < oSEPVal.AvgBaselineYr && oSEPVal.AvgBaselineYr < oSEPVal.MaxModel) ||
+                             (oSEPVal.Minus3DevVal < oSEPVal.AvgBaselineYr &&
+                              oSEPVal.AvgBaselineYr < oSEPVal.Plus3DevVal)))
+
+                        {
+                            avgCompareYear = Convert.ToInt32(oSEPVal.AvgReportYr).ToString();
+                        }
+
+                        //chaining
+
+                        else if (!((oSEPVal.MinModel < oSEPVal.AvgReportYr && oSEPVal.AvgReportYr < oSEPVal.MaxModel) ||
+                                   (oSEPVal.Minus3DevVal < oSEPVal.AvgReportYr &&
+                                    oSEPVal.AvgReportYr < oSEPVal.Plus3DevVal)) &&
+                                 !((oSEPVal.MinModel < oSEPVal.AvgBaselineYr &&
+                                    oSEPVal.AvgBaselineYr < oSEPVal.MaxModel) ||
+                                   (oSEPVal.Minus3DevVal < oSEPVal.AvgBaselineYr &&
+                                    oSEPVal.AvgBaselineYr < oSEPVal.Plus3DevVal)))
+                        {
+                            avgCompareYear = Convert.ToInt32(oSEPVal.AvgReportYr).ToString() + " and " +
+                                             Convert.ToInt32(oSEPVal.AvgBaselineYr).ToString();
+
+                        }
+
+                        else if (((oSEPVal.MinModel < oSEPVal.AvgReportYr && oSEPVal.AvgReportYr < oSEPVal.MaxModel) ||
+                                  (oSEPVal.Minus3DevVal < oSEPVal.AvgReportYr &&
+                                   oSEPVal.AvgReportYr < oSEPVal.Plus3DevVal)) &&
+                                 !((oSEPVal.MinModel < oSEPVal.AvgBaselineYr && oSEPVal.AvgBaselineYr < oSEPVal.MaxModel) ||
+                                   (oSEPVal.Minus3DevVal < oSEPVal.AvgBaselineYr &&
+                                    oSEPVal.AvgBaselineYr < oSEPVal.Plus3DevVal)))
+                        {
+                            avgCompareYear = Convert.ToInt32(oSEPVal.AvgBaselineYr).ToString();
+
+                        }
+                    }
+                    // backcast
+                    if (backcast) { 
+                         if (((oSEPVal.MinModel < oSEPVal.AvgReportYr && oSEPVal.AvgReportYr < oSEPVal.MaxModel) ||
+                                  (oSEPVal.Minus3DevVal < oSEPVal.AvgReportYr &&
+                                   oSEPVal.AvgReportYr < oSEPVal.Plus3DevVal)) &&
+                                 !((oSEPVal.MinModel < oSEPVal.AvgBaselineYr && oSEPVal.AvgBaselineYr < oSEPVal.MaxModel) ||
+                                   (oSEPVal.Minus3DevVal < oSEPVal.AvgBaselineYr &&
+                                    oSEPVal.AvgBaselineYr < oSEPVal.Plus3DevVal)))
+                        {
+                            avgCompareYear = Convert.ToInt32(oSEPVal.AvgBaselineYr).ToString();
+
+                        }
+                    }
+
+
+
+                    Globals.ThisAddIn.sepValidationWarningMsg = "Warning: The mean of the cells highlighted in red on the “Model Data” sheet (" + avgCompareYear + ") are out of the allowable range of the model year values (min, max = " + minmaxModel + " ; mean +/-3 std. dev. = " + plusminusSTDDev + " ). Meaning, the model cannot be used to predict the energy consumption for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in red in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.";
                     Globals.ThisAddIn.hasSEPValidationError = true;
                     
                 }
@@ -1173,19 +1235,19 @@ namespace AMO.EnPI.AddIn
             if (Globals.ThisAddIn.hasSEPValidationError)
             {
                 //text changed per ticket #66441
-                //Warnings.Add("Warning: The cells highlighted in red are out of the allowable range of the model year values. Meaning, the model cannot be used to predict the energy use for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.");
+                //Warnings.Add("Warning: The cells highlighted in red are out of the allowable range of the model year values. Meaning, the model cannot be used to predict the energy consumption for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.");
                 //Warnings.Add("Warning: The cells highlighted in red are out of the allowable range of the model year values. If the model is being evaluated during a period where it is not valid, please use a different model adjustment application method.");
-               // string minmaxModel = string.Empty;
-               // string plusminusSTDDev = string.Empty;
-               // string avgReportYear = string.Empty;
-               //// for (int cnt = 0; cnt < lstWarningValidationValues.Count; cnt++)
-               // if(lstWarningValidationValues.Count >0)
-               // {
-               //     minmaxModel =  Convert.ToInt32(lstWarningValidationValues[0].MinModel).ToString() + " , " + Convert.ToInt32(lstWarningValidationValues[0].MaxModel).ToString();
-               //     plusminusSTDDev =  Convert.ToInt32(lstWarningValidationValues[0].Minus3DevVal).ToString() + " , " + Convert.ToInt32(lstWarningValidationValues[0].Plus3DevVal).ToString();
-               //     avgReportYear =  Convert.ToInt32(lstWarningValidationValues[0].AvgReportYr).ToString();
-               // }
-               // Globals.ThisAddIn.sepValidationWarningMsg = "Warning: The mean of the cells highlighted in red on the “Model Data” sheet (" + avgReportYear + ") are out of the allowable range of the model year values (min, max = " + minmaxModel + " ; mean +/-3 std. dev. = " + plusminusSTDDev + " ). Meaning, the model cannot be used to predict the energy use for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in red in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.";
+                // string minmaxModel = string.Empty;
+                // string plusminusSTDDev = string.Empty;
+                // string avgReportYear = string.Empty;
+                //// for (int cnt = 0; cnt < lstWarningValidationValues.Count; cnt++)
+                // if(lstWarningValidationValues.Count >0)
+                // {
+                //     minmaxModel =  Convert.ToInt32(lstWarningValidationValues[0].MinModel).ToString() + " , " + Convert.ToInt32(lstWarningValidationValues[0].MaxModel).ToString();
+                //     plusminusSTDDev =  Convert.ToInt32(lstWarningValidationValues[0].Minus3DevVal).ToString() + " , " + Convert.ToInt32(lstWarningValidationValues[0].Plus3DevVal).ToString();
+                //     avgReportYear =  Convert.ToInt32(lstWarningValidationValues[0].AvgReportYr).ToString();
+                // }
+                // Globals.ThisAddIn.sepValidationWarningMsg = "Warning: The mean of the cells highlighted in red on the “Model Data” sheet (" + avgReportYear + ") are out of the allowable range of the model year values (min, max = " + minmaxModel + " ; mean +/-3 std. dev. = " + plusminusSTDDev + " ). Meaning, the model cannot be used to predict the energy consumption for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in red in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.";
                 Warnings.Add(Globals.ThisAddIn.sepValidationWarningMsg);
             }
         }
@@ -1206,7 +1268,21 @@ namespace AMO.EnPI.AddIn
                 retVal = true;
             else if (avrg < (forStdDev.Average() - 3 * ArrayStdDev(forStdDev)))
                 retVal = true;
-            sepValidationCheck = GetSEPValidationCheckValue(independentVariable, avrg, avgReportYr, avgBaselineYr, minModel, maxModel, (forStdDev.Average() - 3 * ArrayStdDev(forStdDev)), (forStdDev.Average() + 3 * ArrayStdDev(forStdDev)),backcast);
+
+            if (!backcast)
+            {
+                sepValidationCheck = GetSEPValidationCheckValue(independentVariable, avrg, avgReportYr, avgBaselineYr,
+                    minModel, maxModel, (forStdDev.Average() - 3 * ArrayStdDev(forStdDev)),
+                    (forStdDev.Average() + 3 * ArrayStdDev(forStdDev)), backcast);
+            }
+            else
+            {
+                sepValidationCheck = GetSEPValidationCheckValue(independentVariable, avrg, avgReportYr, avgBaselineYr,
+                    minModelBackcast, maxModelBackcast, (forStdDev.Average() - 3 * ArrayStdDev(forStdDev)),
+                    (forStdDev.Average() + 3 * ArrayStdDev(forStdDev)), backcast);
+            }
+
+
             if (yearIndex.Equals(modelYearIndex) && !backcast)
             {
                 //add values to the validation table on the sheet
@@ -1294,23 +1370,28 @@ namespace AMO.EnPI.AddIn
 
                 //return false;
             }
-            
+
             //else if (avrg < minModel || avrg > maxModel)
             //{
-                //check against 3 * std dev
-           
+            //check against 3 * std dev
+
             //else
-              //  return false;
+            //  return false;
             //}
             //else
-              //  return false;
+            //  return false;
             //if (retVal == true)
             //{
-            
-                lstWarningValidationValues.Add(new SEPValidationValues(independentVariable,varIndex, yearIndex, minModel, avgReportYr,avgBaselineYr, maxModel, (forStdDev.Average() - 3 * ArrayStdDev(forStdDev)), (forStdDev.Average() + 3 * ArrayStdDev(forStdDev)),sepValidationCheck,retVal));
-                
+            if (!backcast)
+            {
+                lstWarningValidationValues.Add(new SEPValidationValues(independentVariable, varIndex, yearIndex, minModel, avgReportYr, avgBaselineYr, maxModel, (forStdDev.Average() - 3 * ArrayStdDev(forStdDev)), (forStdDev.Average() + 3 * ArrayStdDev(forStdDev)), sepValidationCheck, retVal));
+            }
+            else
+            {
+                lstWarningValidationValues.Add(new SEPValidationValues(independentVariable, varIndex, yearIndex, minModelBackcast, avgReportYr, avgBaselineYr, maxModelBackcast, (forStdDev.Average() - 3 * ArrayStdDev(forStdDev)), (forStdDev.Average() + 3 * ArrayStdDev(forStdDev)), sepValidationCheck, retVal));
+            }
             //}
-           
+
 
             return retVal;
         }
@@ -1335,9 +1416,9 @@ namespace AMO.EnPI.AddIn
 
             if (includedInModel == true)
             {
-                if (backcast == false)
-                {
-                    if ((minModel < avgReportYr && avgReportYr < maxModel) || (minus3DevVal < avgReportYr && avgReportYr < plus3DevVal))
+                
+                    if (((minModel < avgReportYr && avgReportYr < maxModel) || (minus3DevVal < avgReportYr && avgReportYr < plus3DevVal))
+                  &&  ((minModel < avgBaselineYr && avgBaselineYr < maxModel) || (minus3DevVal < avgBaselineYr && avgBaselineYr < plus3DevVal)))
                     {
                         retVal = "Pass";
                     }
@@ -1345,20 +1426,8 @@ namespace AMO.EnPI.AddIn
                     {
                         retVal = "Fail";
                     }
-                }
-                else
-                {
-                    if ((minModel < avgBaselineYr && avgBaselineYr < maxModel) || (minus3DevVal < avgBaselineYr && avgBaselineYr < plus3DevVal))
-                    {
-                        retVal = "Pass";
-                    }
-                    else
-                    {
-                        retVal = "Fail";
-                    }
-                }
-
-
+               
+               
             }
             else
             {
@@ -1459,7 +1528,7 @@ namespace AMO.EnPI.AddIn
 
    public class SEPValidationValues
     {
-
+        
         internal int VarIndex { get; set; }
         internal int YearIndex { get; set; }
         internal double MinModel { get; set; }

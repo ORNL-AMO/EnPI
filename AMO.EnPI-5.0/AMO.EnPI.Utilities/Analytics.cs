@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Linq;
 using System.Text;
-
+using static alglib;
 
 
 namespace AMO.EnPI.AddIn.Utilities
@@ -638,18 +638,42 @@ namespace AMO.EnPI.AddIn.Utilities
             RMSError = 0;
             Coefficients = null;
         }
+
+        protected bool Equals(Model other)
+        {
+            return ModelNumber == other.ModelNumber && RMSError.Equals(other.RMSError) && Equals(Coefficients, other.Coefficients);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return obj.GetType() == typeof(Model) && Equals((Model) obj);
+        }
+
+        public override int GetHashCode() => (VariableNames != null ? VariableNames.GetHashCode() : 0);
+
+        public static bool operator ==(Model left, Model right)
+        {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(Model left, Model right)
+        {
+            return !Equals(left, right);
+        }
+        
         public Model(int ModelNumber, double[] Ys, double[,] Xs, string[] VariableNames)
         {
             RMSError = 0;
             Coefficients = null;
 
             // run LLS
-            int info;
             double[] c;
-            alglib.lsfitreport rep;
+            lsfitreport rep;
             try
             {
-                alglib.lsfitlinear(Ys, Xsplusone(), out info, out c, out rep);
+                lsfitlinear(Ys, Xsplusone(), out var info, out c, out rep);
             }
             catch
             {
@@ -668,12 +692,11 @@ namespace AMO.EnPI.AddIn.Utilities
             if (Ys != null && Xs != null)
             {
                 // run LLS
-                int info;
                 double[] c;
-                alglib.lsfitreport rep;
+                lsfitreport rep;
                 try
                 {
-                    alglib.lsfitlinear(Ys, Xsplusone(), out info, out c, out rep);
+                    lsfitlinear(Ys, Xsplusone(), out var info, out c, out rep);
                 }
                 catch
                 {
@@ -703,7 +726,7 @@ namespace AMO.EnPI.AddIn.Utilities
         public double TotalSS()
         {
             // compute total sum of squares
-            double ybar = Ys.Average();
+            var ybar = Ys.Average();
             double sst = 0;
             for (int i = Ys.GetLowerBound(0); i <= Ys.GetUpperBound(0); i++)
             {
@@ -737,15 +760,15 @@ namespace AMO.EnPI.AddIn.Utilities
         public double ModelPValue()
         {
             double modelP = 0;
-            double modelF = F();
+            var modelF = F();
             if (modelF < 0) modelF = 0;
 
             try
             {
-                modelP = alglib.fcdistribution(N() - df() - 1, df(), modelF);
+                modelP = fcdistribution(N() - df() - 1, df(), modelF);
 
             }
-            catch (alglib.alglibexception e)
+            catch (alglibexception e)
             {
             }
             return modelP;
@@ -759,11 +782,11 @@ namespace AMO.EnPI.AddIn.Utilities
             // At least one variable must have a p-value of less than 0.1
             // The R2 value must be greater than 0.5
 
-            double[] ps = PValues();
-            bool varsvalid = true;
-            bool varlowexists = false;
+            var ps = PValues();
+            var varsvalid = true;
+            var varlowexists = false;
 
-            for (int i = 0; i < ps.Count(); i++)
+            for (var i = 0; i < ps.Count(); i++)
             {
                 if (ps[i] <= Constants.PVALUE_THRESHOLD)
                     varlowexists = true;
@@ -780,18 +803,14 @@ namespace AMO.EnPI.AddIn.Utilities
             if (ModelPValue() > Constants.PVALUE_THRESHOLD)
                 return false;
 
-            if (R2() < Constants.R2VALUE_MIN)
-                return false;
-
-            return true;
-
+            return !(R2() < Constants.R2VALUE_MIN);
         }
 
         public string Formula()
         {
-            string formula = "";
-            int offset = Coefficients.GetLowerBound(0) - VariableNames.GetLowerBound(0);
-            for (int i = Coefficients.GetLowerBound(0); i < Coefficients.GetUpperBound(0); i++)
+            var formula = "";
+            var offset = Coefficients.GetLowerBound(0) - VariableNames.GetLowerBound(0);
+            for (var i = Coefficients.GetLowerBound(0); i < Coefficients.GetUpperBound(0); i++)
             {
                  formula += "(" + Coefficients[i].ToString("0.0000") + " * " + ExcelHelpers.CreateValidFormulaName(VariableNames[i - offset]) + ") + ";
                 // formula += "(" + Coefficients[i].ToString() + " * " + ExcelHelpers.CreateValidFormulaName(VariableNames[i - offset]) + ") + ";
@@ -809,14 +828,14 @@ namespace AMO.EnPI.AddIn.Utilities
 
         public double[] PredictedYs()
        {            // compute the predicted ys
-           double[] yhat = new double[N()];
-           double[,] xs = Xsplusone();
-           double[] c = Coefficients;
+           var yhat = new double[N()];
+           var xs = Xsplusone();
+           var c = Coefficients;
 
-           for (int i = 0; i < N(); i++)
+           for (var i = 0; i < N(); i++)
            {
                yhat[i] = 0;
-               for (int j = 0; j < k() + 1; j++)
+               for (var j = 0; j < k() + 1; j++)
                {
                    yhat[i] += xs[i, j] * c[j];
                }
@@ -828,16 +847,15 @@ namespace AMO.EnPI.AddIn.Utilities
         public double[,] CovarianceMatrix()
        {
            // compute the coefficient covariance matrix
-           double[,] twodYs = DataHelper.dbl2DArray(Ys);
-           double[,] XYs = DataHelper.dblarrayUnion(Xs, twodYs);
+           var twodYs = DataHelper.dbl2DArray(Ys);
+           var XYs = DataHelper.dblarrayUnion(Xs, twodYs);
            double[,] cov;
-           int info;
-           alglib.linearmodel lm;
-           alglib.lrreport rpt;
+            linearmodel lm;
+            lrreport rpt;
 
            try
            {
-               alglib.lrbuild(XYs, N(), k(), out info, out lm, out rpt);
+               lrbuild(XYs, N(), k(), out var info, out lm, out rpt);
                cov = rpt.c;
            }
            catch
@@ -851,12 +869,12 @@ namespace AMO.EnPI.AddIn.Utilities
         public double[] StandardErrors()
         {
            // compute the x std errors and p-values
-           double[,] cov = CovarianceMatrix();
-           double[] se = new double[k()];
+           var cov = CovarianceMatrix();
+           var se = new double[k()];
 
            if (cov.GetLength(0) > 0 && cov.GetLength(1) > 0)
            {
-               for (int j = 0; j < k(); j++)
+               for (var j = 0; j < k(); j++)
                {
                    se[j] = Math.Sqrt(cov[j, j]);
                }
@@ -867,22 +885,23 @@ namespace AMO.EnPI.AddIn.Utilities
 
         public double[] PValues()
        {
-           double[] c = Coefficients;
-           double[,] cov = CovarianceMatrix();
-           double[] se = StandardErrors();
-           double[] pv = new double[k()];
+           var c = Coefficients;
+           var cov = CovarianceMatrix();
+           var se = StandardErrors();
+           var pv = new double[k()];
 
            if (cov.GetLength(0) > 0 && cov.GetLength(1) > 0)
            {
-               for (int j = 0; j < k(); j++)
+               for (var j = 0; j < k(); j++)
                {
                    se[j] = Math.Sqrt(cov[j, j]);
                    try
                    {
-                       pv[j] = 2 * (1 - alglib.studenttdistribution(df(), Math.Abs(c[j] / se[j])));
+                       pv[j] = 2 * (1 - studenttdistribution(df(), Math.Abs(c[j] / se[j])));
                    }
                    catch
                    {
+                       // ignored
                    }
                }
            }
@@ -898,8 +917,8 @@ namespace AMO.EnPI.AddIn.Utilities
         //Added By Suman for SEP Validation changes
         public string[] SEPValidationCheck()
         {
-            string[] sepChk = new string[k()];
-            for (int cnt = 0; cnt < sepChk.Length; cnt++)
+            var sepChk = new string[k()];
+            for (var cnt = 0; cnt < sepChk.Length; cnt++)
             {
                 if (Valid() == true)
                 {
@@ -923,8 +942,8 @@ namespace AMO.EnPI.AddIn.Utilities
 
         public Model New()
         {
-            Model aModel = new Model();
-            int i = List.Add(aModel);
+            var aModel = new Model();
+            var i = List.Add(aModel);
             aModel.ModelNumber = i + 1;
 
             return aModel;
@@ -936,8 +955,9 @@ namespace AMO.EnPI.AddIn.Utilities
             {
                 List.RemoveAt(index);
             }
-            catch
+            catch (Exception)
             {
+                // ignored
             }
         }
 
@@ -948,7 +968,8 @@ namespace AMO.EnPI.AddIn.Utilities
 
         public int IndexOf(int ModelNo)
         {
-            for (int i = 0; i < List.Count; i++)
+            if (ModelNo <= 0) throw new ArgumentOutOfRangeException(nameof(ModelNo));
+            for (var i = 0; i < List.Count; i++)
             {
                 if (Item(i).ModelNumber == ModelNo) return i;
             }
@@ -957,7 +978,7 @@ namespace AMO.EnPI.AddIn.Utilities
 
         public ArrayList ModelSort()
         {
-            IComparer sorter = new R2SortHelper();
+            var sorter = new R2SortHelper();
             InnerList.Sort(sorter);
             return InnerList;
         }
@@ -965,16 +986,21 @@ namespace AMO.EnPI.AddIn.Utilities
         private class R2SortHelper : System.Collections.IComparer
         {
             public int Compare(object x, object y)
-            {
-                double m1 = ((Model)x).R2() + ((Model)x).Valid().GetHashCode();
-                double m2 = ((Model)y).R2() + ((Model)y).Valid().GetHashCode();
 
-                if (m1 > m2)
-                    return -1;
-                else if (m1 < m2)
-                    return 1;
-                else
-                    return 0;
+            {
+                if (x != y )
+                {
+                    var m1 = (x as Model).R2() + (x as Model).Valid().GetHashCode();
+                    var m2 = (y as Model).R2() + (y as Model).Valid().GetHashCode();
+
+                    if (m1 > m2)
+                        return -1;
+                    else if (m1 < m2)
+                        return 1;
+                    
+                }
+                return 0;
+                
             }
         }
 

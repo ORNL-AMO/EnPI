@@ -174,7 +174,7 @@ namespace AMO.EnPI.AddIn
             if (Globals.ThisAddIn.hasSEPValidationError)
                 //Warnings.Add("Warning: The cells highlighted in red are out of the allowable range of the model year values. If the model is being evaluated during a period where it is not valid, please use a different model adjustment application method.");
                 //Modified by Suman TFS Ticket : 66442
-                //Warnings.Add("Warning: The cells highlighted in red on the “Model Data” sheet are out of the allowable range of the model year values. Meaning, the model cannot be used to predict the energy use for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in red in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.");
+                //Warnings.Add("Warning: The cells highlighted in red on the “Model Data” sheet are out of the allowable range of the model year values. Meaning, the model cannot be used to predict the energy consumption for the time period shown in red if the variables shown in red are included in the model. It is recommended to select an alternative model which meets the R-squared and p-value requirements and does not include the variable shown in red in the model. If an alternative model cannot be selected with the current model year, try selecting an alternative model year. For more information, see the SEP Measurement and Verification Protocol.");
                 Warnings.Add(Globals.ThisAddIn.sepValidationWarningMsg);
 
 
@@ -353,7 +353,7 @@ namespace AMO.EnPI.AddIn
             ((Excel.Range)newRow5.Range).Cells.Interior.Color = 0xFFFFFF;
             ((Excel.Range)newRow5.Range[1, 1]).Cells.Interior.Color = 0x28624F;
 
-            int modelIndex = 0;
+            int modelIndex = 3;
             foreach (Excel.ListColumn LC in SummaryData.ListColumns)
             {
                 int index = LC.Index;
@@ -376,7 +376,7 @@ namespace AMO.EnPI.AddIn
                 newRow5.Range.NumberFormat = "###,##0";
             }
 
-            ((Excel.Range)newRow5.Range[1, modelIndex]).Value2 = Globals.ThisAddIn.rsc.GetString("adjustmentModel");
+            ((Excel .Range)newRow5.Range[1, modelIndex]).Value2 = Globals.ThisAddIn.rsc.GetString("adjustmentModel");
 
             ((Excel.Range)newRow5.Range[1, 1]).Value2 = strAdjustmentMethodColName;
 

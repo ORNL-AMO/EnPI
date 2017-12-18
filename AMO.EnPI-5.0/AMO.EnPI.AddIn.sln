@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMO.EnPI.AddIn", "AMO.EnPI.AddIn\AMO.EnPI.AddIn.csproj", "{4EAD224F-2DF5-4A87-8716-3978981AF386}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMO.EnPI.AddIn.Utilities", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "alglib", "alglib\alglib.csproj", "{64A4E038-A7CA-48DA-9B23-B87284BC061A}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AMO.NewSetup", "AMO.NewSetup\AMO.NewSetup.vdproj", "{346156D1-356B-4BC3-B48A-B92804C45513}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{3E7864D0-E3D6-4E59-AFF1-CA4C11CEAFE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,12 +44,15 @@ Global
 		{64A4E038-A7CA-48DA-9B23-B87284BC061A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64A4E038-A7CA-48DA-9B23-B87284BC061A}.Release|x86.ActiveCfg = Release|x86
 		{64A4E038-A7CA-48DA-9B23-B87284BC061A}.Release|x86.Build.0 = Release|x86
-		{346156D1-356B-4BC3-B48A-B92804C45513}.Debug|Any CPU.ActiveCfg = Debug
-		{346156D1-356B-4BC3-B48A-B92804C45513}.Debug|x86.ActiveCfg = Debug
-		{346156D1-356B-4BC3-B48A-B92804C45513}.Release|Any CPU.ActiveCfg = Release
-		{346156D1-356B-4BC3-B48A-B92804C45513}.Release|x86.ActiveCfg = Release
+		{3E7864D0-E3D6-4E59-AFF1-CA4C11CEAFE3}.Debug|Any CPU.ActiveCfg = Debug
+		{3E7864D0-E3D6-4E59-AFF1-CA4C11CEAFE3}.Debug|x86.ActiveCfg = Debug
+		{3E7864D0-E3D6-4E59-AFF1-CA4C11CEAFE3}.Release|Any CPU.ActiveCfg = Release
+		{3E7864D0-E3D6-4E59-AFF1-CA4C11CEAFE3}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D623F031-2ED3-44C7-B729-7CB8034D564B}
 	EndGlobalSection
 EndGlobal
