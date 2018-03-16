@@ -812,7 +812,7 @@ namespace AMO.EnPI.AddIn.Utilities
             var offset = Coefficients.GetLowerBound(0) - VariableNames.GetLowerBound(0);
             for (var i = Coefficients.GetLowerBound(0); i < Coefficients.GetUpperBound(0); i++)
             {
-                 formula += "(" + Coefficients[i].ToString("0.0000") + " * " + ExcelHelpers.CreateValidFormulaName(VariableNames[i - offset]) + ") + ";
+                 formula += "(" + Coefficients[i].ToString("0.000000000000") + " * " + ExcelHelpers.CreateValidFormulaName(VariableNames[i - offset]) + ") + ";
                 // formula += "(" + Coefficients[i].ToString() + " * " + ExcelHelpers.CreateValidFormulaName(VariableNames[i - offset]) + ") + ";
             }
 

@@ -4,7 +4,6 @@ C:\Users\Public\EnPI\AMO.EnPI-5.0\alglib\obj\Release\alglib.dll
 C:\Users\Public\EnPI\AMO.EnPI-5.0\alglib\obj\Release\alglib.pdb
 C:\ENPI\EnPI\AMO.EnPI-5.0\alglib\bin\Release\alglib.dll
 C:\ENPI\EnPI\AMO.EnPI-5.0\alglib\bin\Release\alglib.pdb
-C:\ENPI\EnPI\AMO.EnPI-5.0\alglib\obj\Release\alglib.csprojResolveAssemblyReference.cache
 C:\ENPI\EnPI\AMO.EnPI-5.0\alglib\obj\Release\alglib.csproj.CoreCompileInputs.cache
 C:\ENPI\EnPI\AMO.EnPI-5.0\alglib\obj\Release\alglib.dll
 C:\ENPI\EnPI\AMO.EnPI-5.0\alglib\obj\Release\alglib.pdb
