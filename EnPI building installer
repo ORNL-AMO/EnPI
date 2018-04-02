@@ -18,6 +18,19 @@ EnPI building installer steps using Visual Studio 2017 Installer Projects.
     g.	Double-click Description and set Value to EnPI AddIn
     h.	Double-click FriendlyName and set Value to EnPI AddIn
     i.	Double-click LoadBehavior and set Value to 3
-    j.	Double-click Manifest and set Value to [TARGETDIR]ExcelAddIn.vsto|vstolocal
+    j.	Double-click Manifest and set Value to [TARGETDIR]AMO.EnPI.AddIn.vsto|vstolocal
 
 	
+Code Signing:
+C:>signtool sign /d "EnPI" /tr http://timestamp.digicert.com /td sha256 /fd sha256 /a EnPI.Setup.msi
+Done Adding Additional Store
+Successfully signed: EnPI.Setup.msi
+
+C:>signtool sign /d "EnPI" /tr http://timestamp.digicert.com /td sha256 /fd sha256 /a Setup.exe
+Done Adding Additional Store
+Successfully signed: setup.exe
+
+On Setup project: F4 to edit the properties of the installer project. Here is where you can set the "author" and "manufacturer". 
+This impacts the install path.
+
+In the project, sign the manifests for each child project also.
