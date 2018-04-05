@@ -21,32 +21,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_14D752E7E61430CF2A2349EA4E2FFB94"
-        "OwnerKey" = "8:_C23AC204E6FC454EB328523788DDFED1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_240E327E07C5482BB915A3A98F5F26AA"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_30A26E7ECE2B1A4928C0C2B84830DF5D"
-        "OwnerKey" = "8:_C23AC204E6FC454EB328523788DDFED1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_364D6D82F2B93B8DCB6BFEC82B9280A9"
-        "OwnerKey" = "8:_240E327E07C5482BB915A3A98F5F26AA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_364D6D82F2B93B8DCB6BFEC82B9280A9"
-        "OwnerKey" = "8:_30A26E7ECE2B1A4928C0C2B84830DF5D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -190,25 +166,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_30A26E7ECE2B1A4928C0C2B84830DF5D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_14D752E7E61430CF2A2349EA4E2FFB94"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_240E327E07C5482BB915A3A98F5F26AA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_364D6D82F2B93B8DCB6BFEC82B9280A9"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -324,99 +282,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_14D752E7E61430CF2A2349EA4E2FFB94"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:alglib, Version=1.0.6613.25745, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_14D752E7E61430CF2A2349EA4E2FFB94"
-                    {
-                    "Name" = "8:alglib.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:alglib.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_CB6C7861D1694BA29387A8E0EBCDE8AD"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_30A26E7ECE2B1A4928C0C2B84830DF5D"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AMO.EnPI.AddIn.Utilities, Version=1.0.6613.25745, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_30A26E7ECE2B1A4928C0C2B84830DF5D"
-                    {
-                    "Name" = "8:AMO.EnPI.AddIn.Utilities.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:AMO.EnPI.AddIn.Utilities.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_CB6C7861D1694BA29387A8E0EBCDE8AD"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_364D6D82F2B93B8DCB6BFEC82B9280A9"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:alglib, Version=1.0.6613.25745, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_364D6D82F2B93B8DCB6BFEC82B9280A9"
-                    {
-                    "Name" = "8:alglib.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:alglib.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_CB6C7861D1694BA29387A8E0EBCDE8AD"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_44CE985AA22FA1F8FC62A2C9B9898113"
@@ -664,7 +529,7 @@
         {
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_CB6C7861D1694BA29387A8E0EBCDE8AD"
             {
-            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -713,14 +578,14 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:EnPI Setup"
         "ProductCode" = "8:{170CAF61-15D3-40F0-80EA-EB336F6A7177}"
-        "PackageCode" = "8:{CA6D18D6-5FA3-48A7-B8AF-6EDF7BD6ABFD}"
+        "PackageCode" = "8:{7774EFDF-18F6-4736-BDC6-6899D375784F}"
         "UpgradeCode" = "8:{E3A540F0-6ACB-4404-995B-5F4EDE2E4DE8}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:5.1.4"
+        "ProductVersion" = "8:5.1.5"
         "Manufacturer" = "8:DOE AMO"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -734,7 +599,7 @@
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:1"
+        "TargetPlatform" = "3:0"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
