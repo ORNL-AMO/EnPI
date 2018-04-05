@@ -28,9 +28,8 @@
     <RootNamespace>AMO.EnPI.AddIn</RootNamespace>
     <AssemblyName>AMO.EnPI.AddIn</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <ManifestCertificateThumbprint>2A857F7E1816ECFFF4D87530124CE48E1899F686</ManifestCertificateThumbprint>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestCertificateThumbprint>E175E9C2BB618816592E29D85D37A7709E8B4F2E</ManifestCertificateThumbprint>
+    <ManifestKeyFile>AMO.EnPI.AddIn_3_TemporaryKey.pfx</ManifestKeyFile>
     <SignManifests>true</SignManifests>
     <Win32Resource>
     </Win32Resource>
@@ -361,6 +360,7 @@
       <DependentUpon>WizardControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="AMO.EnPI.AddIn_1_TemporaryKey.pfx" />
+    <None Include="AMO.EnPI.AddIn_3_TemporaryKey.pfx" />
     <None Include="AMO.EnPI.AddIn_TemporaryKey.pfx" />
     <None Include="devcert.pfx" />
     <None Include="Properties\Settings.settings">
