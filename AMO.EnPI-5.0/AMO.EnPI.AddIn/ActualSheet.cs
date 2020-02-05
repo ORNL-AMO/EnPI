@@ -199,7 +199,7 @@ namespace AMO.EnPI.AddIn
                     SummaryData.ListRows[2].Delete();
                 firstRow = false;
                 string name = es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), "");
-                newRow.Range.Value2 = "=" + SubtotalRowFormula("SUMIF", name);
+                newRow.Range.Formula = "=" + SubtotalRowFormula("SUMIF", name);
                 ((Excel.Range)newRow.Range[1, 1]).Value2 = name;
                 newRow.Range.Style = stylename;
                 ((Excel.Range)newRow.Range).Cells.Interior.Color = 0xBCE4D8;
@@ -236,7 +236,7 @@ namespace AMO.EnPI.AddIn
                         range += SubtotalRowFormula("SUMIF", prod) + " + ";
                 }
                 string name5 = "Total Production Output";
-                prodOutput.Range.Value2 = "=" + range ;
+                prodOutput.Range.Formula = "=" + range ;
                 ((Excel.Range)prodOutput.Range[1, 1]).Value2 = name5;
                 prodOutput.Range.NumberFormat = "###,##0";
             }
@@ -258,9 +258,9 @@ namespace AMO.EnPI.AddIn
             Excel.ListRow cumulativeImprovRow = SummaryData.ListRows.Add(System.Type.Missing);
             string ciName = EnPIResources.totalImprovementColName;
             if (DS.ProductionVariables.Count > 0)
-                cumulativeImprovRow.Range.Value2 = "=(INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedEnergyIntensColName") + "\"," + SummaryData.Name + "[[ ]],0),2)-INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedEnergyIntensColName") + "\"," + SummaryData.Name + "[[ ]],0),COLUMN()))/(INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedEnergyIntensColName") + "\"," + SummaryData.Name + "[[ ]],0),2))";
+                cumulativeImprovRow.Range.Formula = "=(INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedEnergyIntensColName") + "\"," + SummaryData.Name + "[[ ]],0),2)-INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedEnergyIntensColName") + "\"," + SummaryData.Name + "[[ ]],0),COLUMN()))/(INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedEnergyIntensColName") + "\"," + SummaryData.Name + "[[ ]],0),2))";
             else if (DS.BuildingVariables.Count > 0)
-                cumulativeImprovRow.Range.Value2 = "=(INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedBuildingColName") + "\"," + SummaryData.Name + "[[ ]],0),2)-INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedBuildingColName") + "\"," + SummaryData.Name + "[[ ]],0),COLUMN()))/(INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedBuildingColName") + "\"," + SummaryData.Name + "[[ ]],0),2))";
+                cumulativeImprovRow.Range.Formula = "=(INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedBuildingColName") + "\"," + SummaryData.Name + "[[ ]],0),2)-INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedBuildingColName") + "\"," + SummaryData.Name + "[[ ]],0),COLUMN()))/(INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedBuildingColName") + "\"," + SummaryData.Name + "[[ ]],0),2))";
             else
                 cumulativeImprovRow.Range.EntireRow.Hidden = true;
             cumulativeImprovRow.Range.Style = "Percent";
@@ -272,7 +272,7 @@ namespace AMO.EnPI.AddIn
             Excel.ListRow annualImprovRow = SummaryData.ListRows.Add(System.Type.Missing);
             string aiName = EnPIResources.annualImprovementColName;
             if (DS.ProductionVariables.Count > 0 || DS.BuildingVariables.Count > 0)
-                annualImprovRow.Range.Value2 = "=OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),-1,0,1,1)-OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),-1,-1,1,1)";
+                annualImprovRow.Range.Formula = "=OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),-1,0,1,1)-OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),-1,-1,1,1)";
             else
                 annualImprovRow.Range.EntireRow.Hidden = true;
             annualImprovRow.Range.Style = "Percent";
@@ -282,7 +282,7 @@ namespace AMO.EnPI.AddIn
 
             //Calculate Annual Savings
             Excel.ListRow annualSavingsRow = SummaryData.ListRows.Add(System.Type.Missing);
-            annualSavingsRow.Range.Value2 = "=(INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedTotalColName") + "\"," + SummaryData.Name + "[[ ]],0),2)-INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedTotalColName") + "\"," + SummaryData.Name + "[[ ]],0),COLUMN()))";
+            annualSavingsRow.Range.Formula = "=(INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedTotalColName") + "\"," + SummaryData.Name + "[[ ]],0),2)-INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedTotalColName") + "\"," + SummaryData.Name + "[[ ]],0),COLUMN()))";
             annualSavingsRow.Range.Style = "Comma";
             ((Excel.Range)annualSavingsRow.Range[1, 1]).Value2 = "Total Savings Since Baseline Year (MMBtu/Year)";
             ((Excel.Range)annualSavingsRow.Range).Cells.Interior.Color = 0xFFFFFF;
@@ -292,7 +292,7 @@ namespace AMO.EnPI.AddIn
 
             //Calculate Cumulative savings
             Excel.ListRow cumulativeSavingsRow = SummaryData.ListRows.Add(System.Type.Missing);
-            cumulativeSavingsRow.Range.Value2 = "=OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),-1,0,1,1)-OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),-1,-1,1,1)";
+            cumulativeSavingsRow.Range.Formula = "=OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),-1,0,1,1)-OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),-1,-1,1,1)";
             cumulativeSavingsRow.Range.Style = "Comma";
             ((Excel.Range)cumulativeSavingsRow.Range[1, 1]).Value2 = "New Energy Savings for Current Year (MMBtu/year)";
             ((Excel.Range)cumulativeSavingsRow.Range).Cells.Interior.Color = 0xFFFFFF;
@@ -340,7 +340,7 @@ namespace AMO.EnPI.AddIn
         private void AddNewRowToSummaryData(Excel.ListObject SummaryData, string rowName, string rowValue, string stylename,string format)
         {
             Excel.ListRow newRow = SummaryData.ListRows.Add();
-            newRow.Range.Value2 = "=" + rowValue;
+            newRow.Range.Formula = "=" + rowValue;
             ((Excel.Range)newRow.Range[1, 1]).Value2 = rowName;
             newRow.Range.Style = stylename;
             ((Excel.Range)newRow.Range).Cells.Interior.Color = 0xBCE4D8;
@@ -414,7 +414,7 @@ namespace AMO.EnPI.AddIn
             if (formula != "")
             {
                 string name = Globals.ThisAddIn.rsc.GetString("unadjustedBuildingColName");
-                buildEnIntenRow.Range.Value2 = "=" + "OFFSET(" + SummaryData.Name + "[#Headers], MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedTotalColName") + "\"," + SummaryData.Name + "[[#All],[ ]],0)-1,0)" + "/"
+                buildEnIntenRow.Range.Formula = "=" + "OFFSET(" + SummaryData.Name + "[#Headers], MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedTotalColName") + "\"," + SummaryData.Name + "[[#All],[ ]],0)-1,0)" + "/"
                     + formula.Substring(0, formula.Length - 1);
                 buildEnIntenRow.Range.Style = "Comma [0]";
                 ((Excel.Range)buildEnIntenRow.Range[1, 1]).Value2 = name;
@@ -455,7 +455,7 @@ namespace AMO.EnPI.AddIn
             if (formula != "")
             {
                 string name = Globals.ThisAddIn.rsc.GetString("unadjustedEnergyIntensColName");
-                prodEnIntenRow.Range.Value2 = "=" + "OFFSET(" + SummaryData.Name + "[#Headers], MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedTotalColName") + "\"," + SummaryData.Name + "[[#All],[ ]],0)-1,0)" + "/"
+                prodEnIntenRow.Range.Formula = "=" + "OFFSET(" + SummaryData.Name + "[#Headers], MATCH(\"" + Globals.ThisAddIn.rsc.GetString("unadjustedTotalColName") + "\"," + SummaryData.Name + "[[#All],[ ]],0)-1,0)" + "/"
                     + "OFFSET(" + SummaryData.Name + "[#Headers], MATCH(\"Total Production Output\"," + SummaryData.Name + "[[#All],[ ]],0)-1,0)";
                 prodEnIntenRow.Range.Style = "Comma [0]";
                 ((Excel.Range)prodEnIntenRow.Range[1, 1]).Value2 = name;
@@ -857,7 +857,7 @@ namespace AMO.EnPI.AddIn
             foreach(String esv in DS.EnergySourceVariables)
             {
                 ModelData.ListRows.AddEx(Type.Missing, Type.Missing);
-                ModelData.ListRows[DS.EnergySourceVariables.IndexOf(esv) + 1].Range.Value2 = esv;                
+                ModelData.ListRows[DS.EnergySourceVariables.IndexOf(esv) + 1].Range.Formula = esv;                
             }
 
         }
