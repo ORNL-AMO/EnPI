@@ -365,7 +365,7 @@ namespace AMO.EnPI.AddIn
                     else
                         EstimatedCostSavingsRowFormula(2, newRow3, modelIndex, name2, es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), ""));
                      */
-                    ((Excel.Range)newRow3.Range[1, 1]).Value2 = es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), "") + " Estimated Cost Savings ($)"; //TFS Ticket: 68853
+                    ((Excel.Range)newRow3.Range[1, 1]).Formula = es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), "") + " Estimated Cost Savings ($)"; //TFS Ticket: 68853
                     ((Excel.Range)newRow3.Range).Cells.Interior.Color = 0xFFFFFF;
                     ((Excel.Range)newRow3.Range[1, 1]).Cells.Interior.Color = 0x28624F;
                     newRow3.Range.NumberFormat = "_($* #,##0_);_($* (#,##0);_($* \"-\"??_);@_)";
@@ -401,7 +401,7 @@ namespace AMO.EnPI.AddIn
             senpiRow.Range.Style = "Comma";
             senpiRow.Range.NumberFormat = "###,##0.000";
             ((Excel.Range)senpiRow.Range[1, 1]).Value2 = senpiName;
-            ((Excel.Range)senpiRow.Range[1, modelIndex]).Value2 = "= 1";
+            ((Excel.Range)senpiRow.Range[1, modelIndex]).Formula = "= 1";
             senpiRow.Range.EntireRow.Hidden = !isSEnPI;
             
 
@@ -595,7 +595,7 @@ namespace AMO.EnPI.AddIn
                 formula = formula.Substring(0, formula.LastIndexOf("+"));
 
             Excel.ListColumn newcol = Utilities.ExcelHelpers.AddListColumn(AdjustedData, colName);
-            newcol.Range.get_Offset(1, 0).get_Resize(newcol.Range.Rows.Count - 1, 1).Value2 = formula;
+            newcol.Range.get_Offset(1, 0).get_Resize(newcol.Range.Rows.Count - 1, 1).Formula = formula;
             newcol.Range.get_Offset(1, 0).NumberFormat = format ?? "General";
 
         }
@@ -739,15 +739,15 @@ namespace AMO.EnPI.AddIn
                     {
                         if (LC.Index.Equals(modelIndex))
                         {
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                             modelSwitch = true;
                         }
                         //after model
                         else if (modelSwitch)
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + afterModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + afterModel;
                         //before model
                         else
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                     }
                     break;
 
@@ -780,15 +780,15 @@ namespace AMO.EnPI.AddIn
                     {
                         if (LC.Index.Equals(modelIndex))
                         {
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                             modelSwitch = true;
                         }
                         //after model
                         else if (modelSwitch)
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + afterModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + afterModel;
                         //before model
                         else
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                     }
                     break;
 
@@ -947,15 +947,15 @@ namespace AMO.EnPI.AddIn
                     {
                     if (LC.Index.Equals(modelIndex))
                     {
-                        ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                        ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                         modelSwitch = true;
                     }
                     //after model
                     else if (modelSwitch)
-                        ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + afterModel + " * OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),0,-" + (LC.Index - 2).ToString() + ",1,1)";
+                        ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + afterModel + " * OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),0,-" + (LC.Index - 2).ToString() + ",1,1)";
                     //before model
                     else
-                        ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                        ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                     }
                     break;
 
