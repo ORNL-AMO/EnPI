@@ -490,7 +490,7 @@ namespace AMO.EnPI.AddIn
 
                     Excel.ListColumn newcol = Utilities.ExcelHelpers.AddListColumn(AdjustedData, nm);
 
-                    AdjustedData.ListColumns[newcol.Index].DataBodyRange.Value2 = "=" + formula;
+                    AdjustedData.ListColumns[newcol.Index].DataBodyRange.Formula = "=" + formula;
                     AdjustedData.ListColumns[newcol.Index].DataBodyRange.NumberFormat = format ?? "General";
 
                     Globals.ThisAddIn.modeledSourceIndex[count] = newcol.Index;
@@ -512,7 +512,7 @@ namespace AMO.EnPI.AddIn
 
                     AdjustedData.ListColumns[newcol.Index].Name = "Energy Savings: " + es.Name;
                     if (regression)
-                        AdjustedData.ListColumns[newcol.Index].DataBodyRange.Value2 = "=IF([Baseline Year]=[Model Year],["
+                        AdjustedData.ListColumns[newcol.Index].DataBodyRange.Formula = "=IF([Baseline Year]=[Model Year],["
                             + prefix() + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), "") + "]-["
                             + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), "")
                             + "],IF([Period]=[Model Year],IFERROR((OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN())),-1,0,1,1)+((OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN(["
@@ -539,7 +539,7 @@ namespace AMO.EnPI.AddIn
                             + prefix() + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), "") + "] - ["
                             + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), "") + "])))))";
                     else // Modified By Suman : TFS Ticket :68479
-                        AdjustedData.ListColumns[newcol.Index].DataBodyRange.Value2 = "=IF([Period]=[Baseline Year],["
+                        AdjustedData.ListColumns[newcol.Index].DataBodyRange.Formula = "=IF([Period]=[Baseline Year],["
                             + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), "")
                             + "],IF([Period Count] <= MAX([Baseline Count]),INDEX("
                             + AdjustedData.Name
@@ -904,7 +904,7 @@ namespace AMO.EnPI.AddIn
                 Excel.ListColumn newcol = AdjustedData.ListColumns.Add(System.Type.Missing);// Utilities.ExcelHelpers.AddListColumn(AdjustedData, colName);
 
                 AdjustedData.ListColumns[newcol.Index].Name = colName;
-                AdjustedData.ListColumns[newcol.Index].DataBodyRange.Value2 = formula.ToString();
+                AdjustedData.ListColumns[newcol.Index].DataBodyRange.Formula = formula.ToString();
                 AdjustedData.ListColumns[newcol.Index].DataBodyRange.NumberFormat = format ?? "General";
             }
             catch (Exception ex)
