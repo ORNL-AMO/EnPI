@@ -293,7 +293,7 @@ namespace AMO.EnPI.AddIn
                    SummaryData.ListRows[2].Delete();
                 firstRow = false;
                 string name = es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), "");
-                newRow.Range.Value2 = "=" + SubtotalRowFormula("SUMIF", name);
+                newRow.Range.Formula = "=" + SubtotalRowFormula("SUMIF", name);
                 ((Excel.Range)newRow.Range[1, 1]).Value2 = (EnPIResources.prefixSEPActual + name);
                 newRow.Range.Style = stylename;
                 ((Excel.Range)newRow.Range).Cells.Interior.Color = 0xBCE4D8;
@@ -307,7 +307,7 @@ namespace AMO.EnPI.AddIn
             {
                 Excel.ListRow newColumn = SummaryData.ListRows.Add();
                 string name3 = Globals.ThisAddIn.rsc.GetString("unadjustedTotalColName");
-                newColumn.Range.Value2 = "=" + SubtotalRowFormula("SUMIF", name3);
+                newColumn.Range.Formula = "=" + SubtotalRowFormula("SUMIF", name3);
                 ((Excel.Range)newColumn.Range[1, 1]).Value2 = (Globals.ThisAddIn.rsc.GetString("unadjustedSEPTotalColName"));
                 newColumn.Range.Style = stylename;
                 newColumn.Range.NumberFormat = "###,##0";
@@ -327,7 +327,7 @@ namespace AMO.EnPI.AddIn
             //            range += SubtotalRowFormula("SUMIF", prod) + " + ";
             //    }
             //    string name5 = "Total Production Output";
-            //    prodOutput.Range.Value2 = "=" + range ;
+            //    prodOutput.Range.Formula = "=" + range ;
             //    ((Excel.Range)prodOutput.Range[1, 1]).Value2 = name5;
             //    prodOutput.Range.EntireRow.Hidden = isSEnPI;
             //    prodOutput.Range.NumberFormat = "###,##0";
@@ -387,7 +387,7 @@ namespace AMO.EnPI.AddIn
                 //Modeled Fuel Row
                 Excel.ListRow newRow = SummaryData.ListRows.Add();
                 string name2 = prefix() + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), "");
-                newRow.Range.Value2 = "=" + SubtotalRowFormula("SUMIF", name2);
+                newRow.Range.Formula = "=" + SubtotalRowFormula("SUMIF", name2);
                 ((Excel.Range)newRow.Range[1, 1]).Value2 = (EnPIResources.prefixSEPAdjusted) + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), "");
                 newRow.Range.Style = stylename;
                 ((Excel.Range)newRow.Range).Cells.Interior.Color = 0xFFFFFF;
@@ -401,10 +401,10 @@ namespace AMO.EnPI.AddIn
                 string rowName = (EnPIResources.prefixSEPAdjusted) + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), "");
                 //model = baseline
                 if (modelIndex.Equals(2))
-                    newRow2.Range.Value2 = "=" + AnnualSavingsRowFormula(1, newRow2, modelIndex, rowName, prefixActual + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), ""));
+                    newRow2.Range.Formula = "=" + AnnualSavingsRowFormula(1, newRow2, modelIndex, rowName, prefixActual + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), ""));
                 //model = last reporting year
                 else if (modelIndex.Equals(SummaryData.ListColumns.Count))
-                    newRow2.Range.Value2 = "=" + AnnualSavingsRowFormula(3, newRow2, modelIndex, rowName, prefixActual + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), ""));
+                    newRow2.Range.Formula = "=" + AnnualSavingsRowFormula(3, newRow2, modelIndex, rowName, prefixActual + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), ""));
                 //model > baseline & < last reporting year
                 else
                     AnnualSavingsRowFormula(2, newRow2, modelIndex, rowName, prefixActual + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), ""));
@@ -421,14 +421,14 @@ namespace AMO.EnPI.AddIn
                     Excel.ListRow newRow3 = SummaryData.ListRows.Add();
                     //TFS Ticket 68851: Modified By Suman 
                     string name3 = "Cost Savings ($): " + es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), "");
-                    newRow3.Range.Value2 = "=" + SubtotalRowFormula("SUMIF", name3);
+                    newRow3.Range.Formula = "=" + SubtotalRowFormula("SUMIF", name3);
                     /*
                     //model = baseline
                     if (modelIndex.Equals(2))
-                        newRow3.Range.Value2 = "=" + EstimatedCostSavingsRowFormula(1, newRow3, modelIndex, name2, es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), ""));
+                        newRow3.Range.Formula = "=" + EstimatedCostSavingsRowFormula(1, newRow3, modelIndex, name2, es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), ""));
                     //model = last reporting year
                     else if (modelIndex.Equals(SummaryData.ListColumns.Count))
-                        newRow3.Range.Value2 = "=" + EstimatedCostSavingsRowFormula(3, newRow3, modelIndex, name2, es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), ""));
+                        newRow3.Range.Formula = "=" + EstimatedCostSavingsRowFormula(3, newRow3, modelIndex, name2, es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), ""));
                     //model > baseline & < last reporting year
                     else
                         EstimatedCostSavingsRowFormula(2, newRow3, modelIndex, name2, es.Name.Replace(((char)13).ToString(), "").Replace(((char)10).ToString(), ""));
@@ -443,7 +443,7 @@ namespace AMO.EnPI.AddIn
 
             Excel.ListRow sumRow = SummaryData.ListRows.Add(System.Type.Missing);
             string name4 = Globals.ThisAddIn.rsc.GetString("totalAdjValuesColName");
-            sumRow.Range.Value2 = "=" + SubtotalRowFormula("SUMIF", name4);
+            sumRow.Range.Formula = "=" + SubtotalRowFormula("SUMIF", name4);
             ((Excel.Range)sumRow.Range[1, 1]).Value2 = (Globals.ThisAddIn.rsc.GetString("totalAdjValuesSEPColName")); //"Total Modeled Energy Consumption (MMBTU)");
             sumRow.Range.Style = stylename;
             ((Excel.Range)sumRow.Range).Cells.Interior.Color = 0xFFFFFF;
@@ -459,17 +459,17 @@ namespace AMO.EnPI.AddIn
             string senpiName = "SEnPI";
             //model = baseline
             if (modelIndex.Equals(2))
-                senpiRow.Range.Value2 = "=" + SEnPI(1, senpiRow, modelIndex);
+                senpiRow.Range.Formula = "=" + SEnPI(1, senpiRow, modelIndex);
             //model = last reporting year
             else if (modelIndex.Equals(SummaryData.ListColumns.Count))
-                senpiRow.Range.Value2 = "=" + SEnPI(3, senpiRow, modelIndex);
+                senpiRow.Range.Formula = "=" + SEnPI(3, senpiRow, modelIndex);
             //model > baseline & < last reporting year
             else
                 SEnPI(2, senpiRow, modelIndex);
             senpiRow.Range.Style = "Comma";
             senpiRow.Range.NumberFormat = "###,##0.000";
             ((Excel.Range)senpiRow.Range[1, 1]).Value2 = senpiName;
-            ((Excel.Range)senpiRow.Range[1, modelIndex]).Value2 = "= 1";
+            ((Excel.Range)senpiRow.Range[1, modelIndex]).Formula = "= 1";
             senpiRow.Range.EntireRow.Hidden = false;
 
 
@@ -478,7 +478,7 @@ namespace AMO.EnPI.AddIn
 
             string ciName = EnPIResources.totalImprovementSEPColName;
             if (modelIndex.Equals(2) || modelIndex.Equals(SummaryData.ListColumns.Count))
-                cumulativeImprovRow.Range.Value2 = VaryingRowFormula(modelIndex, cumulativeImprovRow, Utilities.Constants.BEFORE_MODEL_CUMULATIVE_IMPROVMENT, Utilities.Constants.AFTER_MODEL_CUMULATIVE_IMPROVMENT);
+                cumulativeImprovRow.Range.Formula = VaryingRowFormula(modelIndex, cumulativeImprovRow, Utilities.Constants.BEFORE_MODEL_CUMULATIVE_IMPROVMENT, Utilities.Constants.AFTER_MODEL_CUMULATIVE_IMPROVMENT);
             else
                 VaryingRowFormula(modelIndex, cumulativeImprovRow, Utilities.Constants.BEFORE_MODEL_CUMULATIVE_IMPROVMENT, Utilities.Constants.AFTER_MODEL_CUMULATIVE_IMPROVMENT);
             cumulativeImprovRow.Range.Style = "Percent";
@@ -496,7 +496,7 @@ namespace AMO.EnPI.AddIn
                    else
                        aiName = EnPIResources.annualImprovementSEnPIColName;
                    if (modelIndex.Equals(2) || modelIndex.Equals(SummaryData.ListColumns.Count))
-                       annualImprovRow.Range.Value2 = VaryingRowFormula(modelIndex, annualImprovRow, Utilities.Constants.BEFORE_MODEL_ANNUAL_IMPROVMENT, Utilities.Constants.AFTER_MODEL_ANNUAL_IMPROVMENT);
+                       annualImprovRow.Range.Formula = VaryingRowFormula(modelIndex, annualImprovRow, Utilities.Constants.BEFORE_MODEL_ANNUAL_IMPROVMENT, Utilities.Constants.AFTER_MODEL_ANNUAL_IMPROVMENT);
                    else
                        VaryingRowFormula(modelIndex, annualImprovRow, Utilities.Constants.BEFORE_MODEL_ANNUAL_IMPROVMENT, Utilities.Constants.AFTER_MODEL_ANNUAL_IMPROVMENT);
                    annualImprovRow.Range.Style = "Percent";
@@ -511,7 +511,7 @@ namespace AMO.EnPI.AddIn
                    string after = "INDEX(" + SummaryData.Name + ",MATCH(\"" + Globals.ThisAddIn.rsc.GetString("totalAdjValuesColName") + "\"," + SummaryData.Name + "[[ ]],0),)-INDEX(" + SummaryData.Name + ",MATCH(\"" + unadjustedTotalColName + "\"," + SummaryData.Name + "[[ ]],0),)";
                    Excel.ListRow annualSavingsRow = SummaryData.ListRows.Add(System.Type.Missing);
                    if (modelIndex.Equals(2) || modelIndex.Equals(SummaryData.ListColumns.Count))
-                       annualSavingsRow.Range.Value2 = VaryingRowFormula(modelIndex, annualSavingsRow, before, after);
+                       annualSavingsRow.Range.Formula = VaryingRowFormula(modelIndex, annualSavingsRow, before, after);
                    else
                        VaryingRowFormula(modelIndex, annualSavingsRow, before, after);
                    annualSavingsRow.Range.Style = "Comma";
@@ -542,7 +542,7 @@ namespace AMO.EnPI.AddIn
 
                    //Calculate 
                    Excel.ListRow newEnergySavingsRow = SummaryData.ListRows.Add(System.Type.Missing);
-                   newEnergySavingsRow.Range.Value2 = "=OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),-2,0,1,1) - OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),-2,-1,1,1)";
+                   newEnergySavingsRow.Range.Formula = "=OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),-2,0,1,1) - OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),-2,-1,1,1)";
                    newEnergySavingsRow.Range.Style = "Comma";
                    newEnergySavingsRow.Range.NumberFormat = "###,##0";
                    ((Excel.Range)newEnergySavingsRow.Range[1, 1]).Value2 = "New Energy Savings for Current Year (MMBtu/year)";
@@ -553,7 +553,7 @@ namespace AMO.EnPI.AddIn
 
                    //Calculate 
                    Excel.ListRow adjustmentforBaselineRow = SummaryData.ListRows.Add(System.Type.Missing);
-                   adjustmentforBaselineRow.Range.Value2 = "=(INDEX(" + SummaryData.Name + ",MATCH(\"" + unadjustedTotalColName + "\"," + SummaryData.Name + "[[ ]],0),) + OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN())),-3,0,1,1)) - (INDEX(" + SummaryData.Name + ",MATCH(\"" + unadjustedTotalColName + "\"," + SummaryData.Name + "[[ ]],0),2))";
+                   adjustmentforBaselineRow.Range.Formula = "=(INDEX(" + SummaryData.Name + ",MATCH(\"" + unadjustedTotalColName + "\"," + SummaryData.Name + "[[ ]],0),) + OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN())),-3,0,1,1)) - (INDEX(" + SummaryData.Name + ",MATCH(\"" + unadjustedTotalColName + "\"," + SummaryData.Name + "[[ ]],0),2))";
                    adjustmentforBaselineRow.Range.Style = "Comma";
                    adjustmentforBaselineRow.Range.NumberFormat = "###,##0";
                    ((Excel.Range)adjustmentforBaselineRow.Range[1, 1]).Value2 = "Adjustment for Baseline Primary Energy Use (MMBtu/year)";
@@ -1134,15 +1134,15 @@ namespace AMO.EnPI.AddIn
                     {
                         if (LC.Index.Equals(modelIndex))
                         {
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                             modelSwitch = true;
                         }
                         //after model
                         else if (modelSwitch)
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + afterModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + afterModel;
                         //before model
                         else
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                     }
                     break;
 
@@ -1175,15 +1175,15 @@ namespace AMO.EnPI.AddIn
                     {
                         if (LC.Index.Equals(modelIndex))
                         {
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                             modelSwitch = true;
                         }
                         //after model
                         else if (modelSwitch)
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + afterModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + afterModel;
                         //before model
                         else
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                     }
                     break;
 
@@ -1342,15 +1342,15 @@ namespace AMO.EnPI.AddIn
                     {
                         if (LC.Index.Equals(modelIndex))
                         {
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                             modelSwitch = true;
                         }
                         //after model
                         else if (modelSwitch)
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + afterModel + " * OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),0,-" + (LC.Index - 2).ToString() + ",1,1)";
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + afterModel + " * OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),0,-" + (LC.Index - 2).ToString() + ",1,1)";
                         //before model
                         else
-                            ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                            ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                     }
                     break;
 
@@ -1410,7 +1410,7 @@ namespace AMO.EnPI.AddIn
         private void AddNewRowToSummaryData(Excel.ListObject SummaryData, string rowName, string rowValue, string stylename, string format)
         {
             Excel.ListRow newRow = SummaryData.ListRows.Add();
-            newRow.Range.Value2 = "=" + rowValue;
+            newRow.Range.Formula = "=" + rowValue;
             ((Excel.Range)newRow.Range[1, 1]).Value2 = rowName;
             newRow.Range.Style = stylename;
             ((Excel.Range)newRow.Range).Cells.Interior.Color = 0xBCE4D8;
