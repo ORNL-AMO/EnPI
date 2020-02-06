@@ -378,7 +378,7 @@ namespace AMO.EnPI.AddIn
                 formula = formula.Substring(0, formula.LastIndexOf("+"));
 
             Excel.ListColumn newcol = Utilities.ExcelHelpers.AddListColumn(AdjustedData, colName);
-            newcol.Range.get_Offset(1, 0).get_Resize(newcol.Range.Rows.Count - 1, 1).Value2 = formula;
+            newcol.Range.get_Offset(1, 0).get_Resize(newcol.Range.Rows.Count - 1, 1).Formula = formula;
             newcol.Range.get_Offset(1, 0).NumberFormat = format ?? "General";
 
         }
@@ -396,7 +396,7 @@ namespace AMO.EnPI.AddIn
                 {
                     Excel.ListColumn newCol = SummaryData.ListColumns.Add(2);
                     newCol.Name = Globals.ThisAddIn.rsc.GetString("adjustedBuildingName"); ;
-                    newCol.DataBodyRange.Value2 = "=" + that() + "/" + formula.Substring(0, formula.Length - 1);
+                    newCol.DataBodyRange.Formula = "=" + that() + "/" + formula.Substring(0, formula.Length - 1);
                     newCol.DataBodyRange.Style = "Comma [0]";
                 }
             }
@@ -436,7 +436,7 @@ namespace AMO.EnPI.AddIn
                 {
                     Excel.ListColumn newCol = SummaryData.ListColumns.Add(2);
                     newCol.Name = Globals.ThisAddIn.rsc.GetString("adjustedEnergyIntensName"); ;
-                    newCol.DataBodyRange.Value2 = "=" + that() + "/" + formula.Substring(0, formula.Length - 1);
+                    newCol.DataBodyRange.Formula = "=" + that() + "/" + formula.Substring(0, formula.Length - 1);
                     newCol.DataBodyRange.Style = "Comma [0]";
                 }
 
@@ -628,15 +628,15 @@ namespace AMO.EnPI.AddIn
                     {
                     if (LC.Index.Equals(modelIndex))
                     {
-                        ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                        ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                         modelSwitch = true;
                     }
                     //after model
                     else if (modelSwitch)
-                        ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + afterModel + " * OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),0,-" + (LC.Index - 2).ToString() + ",1,1)";
+                        ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + afterModel + " * OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),0,-" + (LC.Index - 2).ToString() + ",1,1)";
                     //before model
                     else
-                        ((Excel.Range)row.Range[1, LC.Index]).Value2 = "=" + beforeModel;
+                        ((Excel.Range)row.Range[1, LC.Index]).Formula = "=" + beforeModel;
                     }
                     break;
 
