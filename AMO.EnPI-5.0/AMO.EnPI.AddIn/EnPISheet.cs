@@ -557,7 +557,7 @@ namespace AMO.EnPI.AddIn
         private void AddNewRowToSummaryData(Excel.ListObject SummaryData, string rowName, string rowValue, string stylename, string format)
         {
             Excel.ListRow newRow = SummaryData.ListRows.Add();
-            newRow.Range.Value2 = "=" + rowValue;
+            newRow.Range.Formula = "=" + rowValue;
             ((Excel.Range)newRow.Range[1, 1]).Value2 = rowName;
             newRow.Range.Style = stylename;
             ((Excel.Range)newRow.Range).Cells.Interior.Color = 0xBCE4D8;
@@ -613,7 +613,7 @@ namespace AMO.EnPI.AddIn
                 {
                     Excel.ListColumn newCol = SummaryData.ListColumns.Add(2);
                     newCol.Name = Globals.ThisAddIn.rsc.GetString("adjustedBuildingName"); ;
-                    newCol.DataBodyRange.Value2 = "=" + that() + "/" + formula.Substring(0, formula.Length - 1);
+                    newCol.DataBodyRange.Formula = "=" + that() + "/" + formula.Substring(0, formula.Length - 1);
                     newCol.DataBodyRange.Style = "Comma [0]";
                 }
 
@@ -655,7 +655,7 @@ namespace AMO.EnPI.AddIn
                 {
                     Excel.ListColumn newCol = SummaryData.ListColumns.Add(2);
                     newCol.Name =Globals.ThisAddIn.rsc.GetString("adjustedEnergyIntensName"); ;
-                    newCol.DataBodyRange.Value2 ="=" + that() + "/" + formula.Substring(0, formula.Length - 1);
+                    newCol.DataBodyRange.Formula ="=" + that() + "/" + formula.Substring(0, formula.Length - 1);
                     newCol.DataBodyRange.Style ="Comma [0]";
                     newCol.Range.EntireColumn.Hidden = isSEnPI;
                 }
