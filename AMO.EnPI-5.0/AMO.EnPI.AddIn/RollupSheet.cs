@@ -885,7 +885,7 @@ namespace AMO.EnPI.AddIn
                 target.get_Resize(rows, 1).get_Offset(0, pivot_src_hdrs.IndexOf(col_name)).FormulaArray = LinkedValues(dt, namendx);
             // if no name exists, use the sheet name of the source sheet
             if (namendx == 0)
-                target.get_Resize(rows, 1).get_Offset(0, pivot_src_hdrs.IndexOf(col_name)).Value = SheetNameFormula(dt);
+                target.get_Resize(rows, 1).get_Offset(0, pivot_src_hdrs.IndexOf(col_name)).Formula = SheetNameFormula(dt);
 
             // YEAR Column
             int yrndx = (Utilities.ExcelHelpers.GetListColumn(dt, col_year)) != null ? Utilities.ExcelHelpers.GetListColumn(dt, col_year).Index : 0;

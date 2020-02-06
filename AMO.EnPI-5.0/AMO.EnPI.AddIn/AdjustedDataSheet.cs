@@ -199,7 +199,7 @@ namespace AMO.EnPI.AddIn
             Excel.ListColumn newcol = AdjustedData.ListColumns.Add(System.Type.Missing);
             AdjustedData.ListColumns[newcol.Index].Name = colName;
 
-            AdjustedData.ListColumns[newcol.Index].DataBodyRange.Value = arrayformula.ToString();
+            AdjustedData.ListColumns[newcol.Index].DataBodyRange.Formula = arrayformula.ToString();
 
             newcol.Range.EntireColumn.Hidden = true;
         }
@@ -384,7 +384,7 @@ namespace AMO.EnPI.AddIn
             ",IF([" + Globals.ThisAddIn.rsc.GetString("BaselineYearColName") + "]=[" + Globals.ThisAddIn.rsc.GetString("ModelYearColName") + "]," + "\"" + Globals.ThisAddIn.rsc.GetString("adjustmentForecast") + "\"" +
             "," + "\"" + Globals.ThisAddIn.rsc.GetString("adjustmentChaining") + "\"" + "))))";
 
-            AdjustedData.ListColumns[newcol.Index].DataBodyRange.Value = formula.ToString();
+            AdjustedData.ListColumns[newcol.Index].DataBodyRange.Formula = formula.ToString();
             AdjustedData.ListColumns[newcol.Index].DataBodyRange.ColumnWidth = 20;
           
 
@@ -424,7 +424,7 @@ namespace AMO.EnPI.AddIn
             Excel.ListColumn newcol = AdjustedData.ListColumns.Add(System.Type.Missing);
 
             AdjustedData.ListColumns[newcol.Index].Name = colName;
-            AdjustedData.ListColumns[newcol.Index].DataBodyRange.Value = "=IF(OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN([Period]))),-1,0,1,1) = OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN([Period]))),0,0,1,1),OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN())),-1,0,1,1) + 1,1)";
+            AdjustedData.ListColumns[newcol.Index].DataBodyRange.Formula = "=IF(OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN([Period]))),-1,0,1,1) = OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN([Period]))),0,0,1,1),OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN())),-1,0,1,1) + 1,1)";
 
             newcol.Range.EntireColumn.Hidden = true;
         }
@@ -436,7 +436,7 @@ namespace AMO.EnPI.AddIn
             Excel.ListColumn newcol = AdjustedData.ListColumns.Add(System.Type.Missing);
 
             AdjustedData.ListColumns[newcol.Index].Name = colName;
-            AdjustedData.ListColumns[newcol.Index].DataBodyRange.Value = "=IF([Period] = [Baseline Year],IF(OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN([Period]))),-1,0,1,1) = OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN([Period]))),0,0,1,1),OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN())),-1,0,1,1) + 1,1),0)";
+            AdjustedData.ListColumns[newcol.Index].DataBodyRange.Formula = "=IF([Period] = [Baseline Year],IF(OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN([Period]))),-1,0,1,1) = OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN([Period]))),0,0,1,1),OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN())),-1,0,1,1) + 1,1),0)";
 
             newcol.Range.EntireColumn.Hidden = true;
         }
@@ -568,7 +568,7 @@ namespace AMO.EnPI.AddIn
                 Excel.ListColumn newcol = AdjustedData.ListColumns.Add(System.Type.Missing);
 
                 AdjustedData.ListColumns[newcol.Index].Name = "CUSUMHidden";//Globals.ThisAddIn.rsc.GetString("adjustedModelCUSUMColName");
-                AdjustedData.ListColumns[newcol.Index].DataBodyRange.Value =
+                AdjustedData.ListColumns[newcol.Index].DataBodyRange.Formula =
                                                             "=IF([Period]=[Model Year],IF(ISNUMBER(OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN())),-1,0,1,1))=TRUE,OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN())),-1,0,1,1),0),["
                                                             + Globals.ThisAddIn.rsc.GetString("unadjustedTotalColName") + "]-["
                                                             + Globals.ThisAddIn.rsc.GetString("totalAdjValuesColName")
@@ -585,7 +585,7 @@ namespace AMO.EnPI.AddIn
                 Excel.ListColumn newcol = AdjustedData.ListColumns.Add(System.Type.Missing);
 
                 AdjustedData.ListColumns[newcol.Index].Name = Globals.ThisAddIn.rsc.GetString("adjustedModelCUSUMColName");
-                AdjustedData.ListColumns[newcol.Index].DataBodyRange.Value = "=IF([Period]=[Model Year],\"\",[CUSUMHidden])";
+                AdjustedData.ListColumns[newcol.Index].DataBodyRange.Formula = "=IF([Period]=[Model Year],\"\",[CUSUMHidden])";
             
                                                         
         }
@@ -604,7 +604,7 @@ namespace AMO.EnPI.AddIn
                     for (int i = 0; i < Globals.ThisAddIn.energyCostColumnMatchArray.Length / 2; i++)
                     {
                         if (Globals.ThisAddIn.energyCostColumnMatchArray[i, 0] == es.Name)
-                            AdjustedData.ListColumns[newcol.Index].DataBodyRange.Value = "=[" + Globals.ThisAddIn.energyCostColumnMatchArray[i, 1] + "]/[" + es.Name + "]";
+                            AdjustedData.ListColumns[newcol.Index].DataBodyRange.Formula = "=[" + Globals.ThisAddIn.energyCostColumnMatchArray[i, 1] + "]/[" + es.Name + "]";
                     }
 
                     //per ticket #68382
@@ -624,8 +624,8 @@ namespace AMO.EnPI.AddIn
                 Excel.ListColumn newcol = AdjustedData.ListColumns.Add(System.Type.Missing);
                 //Modified by Suman :TFS Ticket :68851
                 AdjustedData.ListColumns[newcol.Index].Name = "Cost Savings ($): " + es.Name;
-                //AdjustedData.ListColumns[newcol.Index].DataBodyRange.Value = "=[Unit Cost: " + es.Name +"]*[Energy Savings: " + es.Name + "]";
-                AdjustedData.ListColumns[newcol.Index].DataBodyRange.Value = "=[Unit Cost in $/MMBtu for column: " + es.Name + "]*[Energy Savings: " + es.Name + "]"; //TFS Ticket:68849 
+                //AdjustedData.ListColumns[newcol.Index].DataBodyRange.Formula = "=[Unit Cost: " + es.Name +"]*[Energy Savings: " + es.Name + "]";
+                AdjustedData.ListColumns[newcol.Index].DataBodyRange.Formula = "=[Unit Cost in $/MMBtu for column: " + es.Name + "]*[Energy Savings: " + es.Name + "]"; //TFS Ticket:68849 
 
                 //per ticket #68382
                 //newcol.DataBodyRange.ColumnWidth = 13.71;
@@ -678,7 +678,7 @@ namespace AMO.EnPI.AddIn
             string formula = "=IF([Period]<=[Model Year],\"N/A\"," +
                               "SUM(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.totalAdjValuesColName + "]]:OFFSET(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.totalAdjValuesColName + "]],-11,0))-" +
                                "SUM(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.unadjustedTotalColName + "]]:OFFSET(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.unadjustedTotalColName + "]],-11,0)))";
-            AdjustedData.ListColumns[col.Index].DataBodyRange.Value = formula;
+            AdjustedData.ListColumns[col.Index].DataBodyRange.Formula = formula;
             AdjustedData.ListColumns[col.Index].DataBodyRange.HorizontalAlignment = XlHAlign.xlHAlignRight;
             AdjustedData.ListColumns[col.Index].DataBodyRange.NumberFormat = "##,##0"; 
             col.DataBodyRange.ColumnWidth = 15.71;
@@ -719,7 +719,7 @@ namespace AMO.EnPI.AddIn
 	                           "SUM(" + AdjustedData.Name + "[[#This Row],["+EnPIResources.totalAdjValuesColName+"]]:OFFSET(" + AdjustedData.Name + "[[#This Row],["+EnPIResources.totalAdjValuesColName+"]],-11,0))-SUM(" + AdjustedData.Name + "[[#This Row],["+EnPIResources.unadjustedTotalColName+"]]:OFFSET(" + AdjustedData.Name + "[[#This Row],["+EnPIResources.unadjustedTotalColName+"]],-11,0))+"+
                                "SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear + "\",[" + EnPIResources.unadjustedTotalColName + "])-SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear + "\",[" + EnPIResources.totalAdjValuesColName + "])))";
 
-            AdjustedData.ListColumns[col.Index].DataBodyRange.Value = formula;
+            AdjustedData.ListColumns[col.Index].DataBodyRange.Formula = formula;
             AdjustedData.ListColumns[col.Index].DataBodyRange.HorizontalAlignment = XlHAlign.xlHAlignRight;
             AdjustedData.ListColumns[col.Index].DataBodyRange.NumberFormat = "##,##0"; 
             col.DataBodyRange.ColumnWidth = 15.71;
@@ -733,7 +733,7 @@ namespace AMO.EnPI.AddIn
                         + "SUM(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.unadjustedTotalColName + "]]:"
                         + "OFFSET(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.unadjustedTotalColName + "]],-11,0))"
                         + "))";
-            AdjustedData.ListColumns[col.Index].DataBodyRange.Value = formula;
+            AdjustedData.ListColumns[col.Index].DataBodyRange.Formula = formula;
             AdjustedData.ListColumns[col.Index].DataBodyRange.HorizontalAlignment = XlHAlign.xlHAlignRight;
             AdjustedData.ListColumns[col.Index].DataBodyRange.NumberFormat = "##,##0";
             col.DataBodyRange.ColumnWidth = 15.71;
@@ -757,7 +757,7 @@ namespace AMO.EnPI.AddIn
                                "(1-0.05)*SUM(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.totalAdjValuesColName + "]]:OFFSET(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.totalAdjValuesColName + "]],-11,0))*"+
                                "SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear + "\",[" + EnPIResources.unadjustedTotalColName + "])/SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear + "\",[" + EnPIResources.totalAdjValuesColName + "]))))";
 
-            AdjustedData.ListColumns[col.Index].DataBodyRange.Value = formula;
+            AdjustedData.ListColumns[col.Index].DataBodyRange.Formula = formula;
             AdjustedData.ListColumns[col.Index].DataBodyRange.HorizontalAlignment = XlHAlign.xlHAlignRight;
             AdjustedData.ListColumns[col.Index].DataBodyRange.NumberFormat = "##,##0";
             col.DataBodyRange.ColumnWidth = 15.71;
@@ -780,7 +780,7 @@ namespace AMO.EnPI.AddIn
                               "IF(([Adjustment Method]=\"" + EnPIResources.adjustmentForecast + "\"),(1-0.1)*SUM(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.totalAdjValuesColName + "]]:OFFSET(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.totalAdjValuesColName + "]],-11,0))," +
                                "(1-0.1)*SUM(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.totalAdjValuesColName + "]]:OFFSET(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.totalAdjValuesColName + "]],-11,0))*" +
                                "SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear + "\",[" + EnPIResources.unadjustedTotalColName + "])/SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear + "\",[" + EnPIResources.totalAdjValuesColName + "]))))";
-            AdjustedData.ListColumns[col.Index].DataBodyRange.Value = formula;
+            AdjustedData.ListColumns[col.Index].DataBodyRange.Formula = formula;
             AdjustedData.ListColumns[col.Index].DataBodyRange.HorizontalAlignment = XlHAlign.xlHAlignRight;
             AdjustedData.ListColumns[col.Index].DataBodyRange.NumberFormat = "##,##0";
             col.DataBodyRange.ColumnWidth = 15.71;
@@ -804,7 +804,7 @@ namespace AMO.EnPI.AddIn
                                "(1-0.15)*SUM(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.totalAdjValuesColName + "]]:OFFSET(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.totalAdjValuesColName + "]],-11,0))*" +
                                "SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear + "\",[" + EnPIResources.unadjustedTotalColName + "])/SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear + "\",[" + EnPIResources.totalAdjValuesColName + "]))))";
             
-            AdjustedData.ListColumns[col.Index].DataBodyRange.Value = formula;
+            AdjustedData.ListColumns[col.Index].DataBodyRange.Formula = formula;
             AdjustedData.ListColumns[col.Index].DataBodyRange.HorizontalAlignment = XlHAlign.xlHAlignRight;
             AdjustedData.ListColumns[col.Index].DataBodyRange.NumberFormat = "##,##0";
             col.DataBodyRange.ColumnWidth = 15.71;
@@ -825,7 +825,7 @@ namespace AMO.EnPI.AddIn
                               "SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear + "\",[" + EnPIResources.unadjustedTotalColName + "])/SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear +"\",[" + EnPIResources.totalAdjValuesColName + "])))";
 
 
-            AdjustedData.ListColumns[col.Index].DataBodyRange.Value = formula;
+            AdjustedData.ListColumns[col.Index].DataBodyRange.Formula = formula;
             AdjustedData.ListColumns[col.Index].DataBodyRange.HorizontalAlignment = XlHAlign.xlHAlignRight;
             AdjustedData.ListColumns[col.Index].DataBodyRange.NumberFormat = "##,##0";
             col.DataBodyRange.ColumnWidth = 15.71;
@@ -846,7 +846,7 @@ namespace AMO.EnPI.AddIn
                               "SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear + "\",[" + EnPIResources.unadjustedTotalColName + "])/SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear + "\",[" + EnPIResources.totalAdjValuesColName + "])))";
 
 
-            AdjustedData.ListColumns[col.Index].DataBodyRange.Value = formula;
+            AdjustedData.ListColumns[col.Index].DataBodyRange.Formula = formula;
             AdjustedData.ListColumns[col.Index].DataBodyRange.HorizontalAlignment = XlHAlign.xlHAlignRight;
             AdjustedData.ListColumns[col.Index].DataBodyRange.NumberFormat = "##,##0";
             col.DataBodyRange.ColumnWidth = 15.71;
@@ -866,7 +866,7 @@ namespace AMO.EnPI.AddIn
                              "SUM(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.totalAdjValuesColName + "]]:OFFSET(" + AdjustedData.Name + "[[#This Row],[" + EnPIResources.totalAdjValuesColName + "]],-11,0))-[" + EnPIResources.sepTrailingTwelveMonthActualEnergyConsumptionFifteenPerTarget + "]+" +
                              "SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear + "\",[" + EnPIResources.unadjustedTotalColName + "])/SUMIF([Period],\"" + Globals.ThisAddIn.BaselineYear + "\",[" + EnPIResources.totalAdjValuesColName + "])))";
 
-            AdjustedData.ListColumns[col.Index].DataBodyRange.Value = formula;
+            AdjustedData.ListColumns[col.Index].DataBodyRange.Formula = formula;
             AdjustedData.ListColumns[col.Index].DataBodyRange.HorizontalAlignment = XlHAlign.xlHAlignRight;
             AdjustedData.ListColumns[col.Index].DataBodyRange.NumberFormat = "##,##0";
             col.DataBodyRange.ColumnWidth = 15.71;
