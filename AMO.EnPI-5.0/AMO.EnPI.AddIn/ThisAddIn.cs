@@ -639,7 +639,7 @@ namespace AMO.EnPI.AddIn
                 Excel.ListColumn newCol = LO.ListColumns.Add(2);
                 colName = "Production";
                 newCol.Name = colName;
-                newCol.DataBodyRange.Value2 = "=" + formula.Substring(0, formula.Length - 1);
+                newCol.DataBodyRange.Formula = "=" + formula.Substring(0, formula.Length - 1);
                 newCol.DataBodyRange.Style = "Comma [0]";
             }
 
@@ -665,7 +665,7 @@ namespace AMO.EnPI.AddIn
             {
                 Excel.ListColumn newCol = LO.ListColumns.Add(missing);
                 newCol.Name = newname;
-                newCol.DataBodyRange.Value2 = formula;
+                newCol.DataBodyRange.Formula = formula;
                 newCol.DataBodyRange.Style = "Comma";
             }
         }
