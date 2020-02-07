@@ -232,7 +232,7 @@ namespace AMO.EnPI.AddIn
 
             for (int i = 3; i <= tableBody.Columns.Count; i++)
             {
-                ((Excel.Range)tableBody[i]).Value2 = DS.IndependentVariables[i - 3].ToString();
+                ((Excel.Range)tableBody[i]).Formula = DS.IndependentVariables[i - 3].ToString();
             }
             tableBody.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Black);
 
