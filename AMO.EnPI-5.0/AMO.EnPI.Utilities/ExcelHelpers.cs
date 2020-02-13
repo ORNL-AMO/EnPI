@@ -78,7 +78,7 @@ namespace AMO.EnPI.AddIn.Utilities
             {
                 if (dc.ExtendedProperties["Formula"] != null)
                 {
-                    range1.get_Offset(1, dc.Ordinal).get_Resize(dt.Rows.Count, 1).Value2 = dc.ExtendedProperties["formula"];
+                    range1.get_Offset(1, dc.Ordinal).get_Resize(dt.Rows.Count, 1).Formula = dc.ExtendedProperties["formula"];
                 }
             }
 

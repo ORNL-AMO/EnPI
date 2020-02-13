@@ -120,7 +120,7 @@ namespace AMO.EnPI.AddIn
             if (interval == Constants.INTERVAL_TYPE_DAILY)
             {            
                 //formula = formula + "\"" + "FY1" + "\"";
-                //LC.DataBodyRange.Value2 = formula;
+                //LC.DataBodyRange.Formula = formula;
                 updateRowFYFormula(Constants.INTERVAL_TYPE_DAYS_COUNT, LC, rowStart);
             }
             

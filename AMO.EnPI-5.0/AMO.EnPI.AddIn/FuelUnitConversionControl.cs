@@ -748,7 +748,7 @@ namespace AMO.EnPI.AddIn
 
                     Excel.ListColumn newColumn = thisList.ListColumns.Add(position);
                     newColumn.Name = colName;
-                    newColumn.DataBodyRange.Value2 = formula;
+                    newColumn.DataBodyRange.Formula = formula;
                     newColumn.DataBodyRange.Style = stylename;
 
                     //set old column property to not show up in regression/actual options

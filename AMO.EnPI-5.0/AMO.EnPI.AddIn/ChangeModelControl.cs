@@ -405,7 +405,7 @@ namespace AMO.EnPI.AddIn
                     if (shortColName.Equals("Modeled " + sm.SheetName.Substring(2)))
                     //------------------------------
                     {
-                        col.DataBodyRange.Value2 = "=" + sm.Formula;
+                        col.DataBodyRange.Formula = "=" + sm.Formula;
 
                         //recalculate all of the List objects so numbers are updated.
                         foreach (Excel.Worksheet WS in WB.Worksheets)

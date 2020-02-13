@@ -261,7 +261,7 @@ namespace AMO.EnPI.AddIn
             for (int k = 0; k < dt.numOfSources; k++)
             {
                 Excel.Range tmpRng = BottomCell().get_Offset(1, 0);
-                tmpRng.Value2 = "=\'" + dt.TableName + "\'!" + trimmedRange.get_Offset(k + 1).Address.ToString();
+                tmpRng.Formula = "=\'" + dt.TableName + "\'!" + trimmedRange.get_Offset(k + 1).Address.ToString();
                 //add the names to a list so we can compare them for the total roll-up
                 EnergySourceNamesMaster.Add(tmpRng.Value2.ToString());
                 for (int i = 1; i < headerCount; i++)
@@ -269,7 +269,7 @@ namespace AMO.EnPI.AddIn
                     for (int j = 0; j < dt.thisTable.ListColumns.Count; j++)
                     {
                         if (thisSheet.get_Range(GetExcelColumnName(i + 1) + "2", GetExcelColumnName(i + 1) + "2").Value2.ToString().Equals(dt.thisTable.ListColumns[j+1].Name))
-                            tmpRng.get_Offset(0, i).Value2 = "=\'" + dt.TableName + "\'!" + trimmedRange.get_Offset(k + 1, j).Address.ToString();
+                            tmpRng.get_Offset(0, i).Formula = "=\'" + dt.TableName + "\'!" + trimmedRange.get_Offset(k + 1, j).Address.ToString();
                     }
                 }
                 tmpRng.EntireRow.NumberFormat = "#,##0";
@@ -329,7 +329,7 @@ namespace AMO.EnPI.AddIn
         //                            two += dt.numOfSources;
         //                        if (fromActual)
         //                            two = 5 + (dt.numOfSources == 1 && !dt.import ? 1 : 0);
-        //                        row.get_Offset(0, i).Value2 = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + (two + (dt.numOfSources> 1 ? rowNum + (fromActual && dt.fromEnergyCost ? 1 : 0) : (fromActual && dt.import ? dt.numOfSources + 1 : 0))).ToString();//9
+        //                        row.get_Offset(0, i).Formula = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + (two + (dt.numOfSources> 1 ? rowNum + (fromActual && dt.fromEnergyCost ? 1 : 0) : (fromActual && dt.import ? dt.numOfSources + 1 : 0))).ToString();//9
         //                        row.EntireRow.NumberFormat = "#,##0";
         //                        break;
         //                    case "Annual Improvement (%)":
@@ -342,7 +342,7 @@ namespace AMO.EnPI.AddIn
         //                            three += dt.numOfSources;
         //                        if (fromActual)
         //                         three = 9 + (dt.numOfSources == 1 && !dt.import ? 1 : 0) + dt.numOfSources+((hasBuildSqFt)?1:0); //Added by suman TFS Ticket 69473
-        //                         row.get_Offset(0, i).Value2 = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + (three + (dt.numOfSources > 1 ? ((hasBuildSqFt && !hasProd)?0:rowNum) + (fromActual && dt.fromEnergyCost ? (dt.numOfSources * 2 + 1) : 0) : (fromActual && dt.import ? dt.numOfSources + (hasProd ? 1 : 0) + (dt.fromEnergyCost ? (dt.numOfSources * 2) : 0) : 0))).ToString();//12
+        //                         row.get_Offset(0, i).Formula = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + (three + (dt.numOfSources > 1 ? ((hasBuildSqFt && !hasProd)?0:rowNum) + (fromActual && dt.fromEnergyCost ? (dt.numOfSources * 2 + 1) : 0) : (fromActual && dt.import ? dt.numOfSources + (hasProd ? 1 : 0) + (dt.fromEnergyCost ? (dt.numOfSources * 2) : 0) : 0))).ToString();//12
         //                        row.EntireRow.NumberFormat = "0.0%";
         //                        break;
         //                    case "Total Improvement (%)":
@@ -355,7 +355,7 @@ namespace AMO.EnPI.AddIn
         //                            four += dt.numOfSources;
         //                        if (fromActual)
         //                            four = 8 + (dt.numOfSources == 1 && !dt.import ? 1 : 0) + dt.numOfSources+((hasBuildSqFt)?1:0); //Added by suman TFS Ticket 69473
-        //                        row.get_Offset(0, i).Value2 = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + (four + (dt.numOfSources > 1 ?  ((hasBuildSqFt && !hasProd)?0:rowNum) + (fromActual && dt.fromEnergyCost ? (dt.numOfSources * 2 + 1) : 0) : (fromActual && dt.import ? dt.numOfSources + (hasProd ? 1 : 0) + (dt.fromEnergyCost ? (dt.numOfSources * 2) : 0) : 0))).ToString();//11
+        //                        row.get_Offset(0, i).Formula = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + (four + (dt.numOfSources > 1 ?  ((hasBuildSqFt && !hasProd)?0:rowNum) + (fromActual && dt.fromEnergyCost ? (dt.numOfSources * 2 + 1) : 0) : (fromActual && dt.import ? dt.numOfSources + (hasProd ? 1 : 0) + (dt.fromEnergyCost ? (dt.numOfSources * 2) : 0) : 0))).ToString();//11
         //                        row.EntireRow.NumberFormat = "0.0%";
         //                        break;
         //                    case "New Energy Savings for Current Year (MMBtu/year)":
@@ -368,7 +368,7 @@ namespace AMO.EnPI.AddIn
         //                            five += dt.numOfSources;
         //                        if (fromActual)
         //                            five = 11 + (dt.numOfSources == 1 && !dt.import ? 1 : 0) + dt.numOfSources+((hasBuildSqFt)?1:0);//Added by suman TFS Ticket 69473
-        //                        row.get_Offset(0, i).Value2 = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + (five + (dt.numOfSources > 1 ? ((hasBuildSqFt && !hasProd)?0:rowNum) + (fromActual && dt.fromEnergyCost ? (dt.numOfSources * 2 + 1): 0) : (fromActual && dt.import ? dt.numOfSources + (hasProd ? 1 : 0) + (dt.fromEnergyCost ? (dt.numOfSources * 2) : 0) : 0))).ToString();//15
+        //                        row.get_Offset(0, i).Formula = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + (five + (dt.numOfSources > 1 ? ((hasBuildSqFt && !hasProd)?0:rowNum) + (fromActual && dt.fromEnergyCost ? (dt.numOfSources * 2 + 1): 0) : (fromActual && dt.import ? dt.numOfSources + (hasProd ? 1 : 0) + (dt.fromEnergyCost ? (dt.numOfSources * 2) : 0) : 0))).ToString();//15
         //                        row.EntireRow.NumberFormat = "#,##0";
         //                        break;
         //                    case "Total Energy Savings since Baseline Year (MMBtu/year)":
@@ -381,7 +381,7 @@ namespace AMO.EnPI.AddIn
         //                            six += dt.numOfSources;
         //                        if (fromActual)
         //                            six = 10 + (dt.numOfSources == 1 && !dt.import ? 1 : 0) + dt.numOfSources+ ((hasBuildSqFt) ? 1 : 0); //Added by suman TFS Ticket 69473
-        //                        row.get_Offset(0, i).Value2 = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + (six + (dt.numOfSources > 1 ? ((hasBuildSqFt && !hasProd)?0:rowNum) + (fromActual && dt.fromEnergyCost ? (dt.numOfSources * 2 + 1) : 0) : (fromActual && dt.import ? dt.numOfSources + (hasProd ? 1 : 0) + (dt.fromEnergyCost ? (dt.numOfSources * 2) : 0) : 0))).ToString();//13
+        //                        row.get_Offset(0, i).Formula = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + (six + (dt.numOfSources > 1 ? ((hasBuildSqFt && !hasProd)?0:rowNum) + (fromActual && dt.fromEnergyCost ? (dt.numOfSources * 2 + 1) : 0) : (fromActual && dt.import ? dt.numOfSources + (hasProd ? 1 : 0) + (dt.fromEnergyCost ? (dt.numOfSources * 2) : 0) : 0))).ToString();//13
         //                        row.EntireRow.NumberFormat = "#,##0";
         //                        break;
         //                }
@@ -407,32 +407,32 @@ namespace AMO.EnPI.AddIn
                         {
                             case "TOTAL Primary Energy Consumed (MMBtu/year)":
                                 startRowNum = startRowNum + GetRowNumber(EnPIResources.unadjustedTotalColName, dt.thisTable);
-                                row.get_Offset(0, i).Value2 = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + startRowNum.ToString();
+                                row.get_Offset(0, i).Formula = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + startRowNum.ToString();
                                 row.EntireRow.NumberFormat = "#,##0";
                                 break;
                             case "TOTAL MODELED Primary Energy Consumed (MMBtu/year)":
                                 startRowNum = startRowNum + GetRowNumber(fromActual ? EnPIResources.unadjustedTotalColName : EnPIResources.totalAdjValuesColName, dt.thisTable);
-                                row.get_Offset(0, i).Value2 = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + startRowNum.ToString();
+                                row.get_Offset(0, i).Formula = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + startRowNum.ToString();
                                 row.EntireRow.NumberFormat = "#,##0";
                                 break;
                             case "Annual Improvement (%)":
                                 startRowNum = startRowNum + GetRowNumber(EnPIResources.annualImprovementColName, dt.thisTable);
-                                row.get_Offset(0, i).Value2 = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + startRowNum.ToString();
+                                row.get_Offset(0, i).Formula = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + startRowNum.ToString();
                                 row.EntireRow.NumberFormat = "0.0%";
                                 break;
                             case "Total Improvement (%)":
                                 startRowNum = startRowNum + GetRowNumber(EnPIResources.totalImprovementColName , dt.thisTable);
-                                row.get_Offset(0, i).Value2 = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + startRowNum.ToString();
+                                row.get_Offset(0, i).Formula = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + startRowNum.ToString();
                                 row.EntireRow.NumberFormat = "0.0%";
                                 break;
                             case "New Energy Savings for Current Year (MMBtu/year)":
                                 startRowNum = startRowNum + GetRowNumber("New Energy Savings for Current Year (MMBtu/year)", dt.thisTable); //This not defined in Resources files , hence need to hard code
-                                row.get_Offset(0, i).Value2 = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + startRowNum.ToString();
+                                row.get_Offset(0, i).Formula = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + startRowNum.ToString();
                                 row.EntireRow.NumberFormat = "#,##0";
                                 break;
                             case "Total Energy Savings since Baseline Year (MMBtu/year)":
                                 startRowNum = startRowNum + GetRowNumber(fromActual ? "Total Savings Since Baseline Year (MMBtu/Year)" : "Total Energy Savings since Baseline Year (MMBtu/year)", dt.thisTable);//This not defined in Resources files , hence need to hard code
-                                row.get_Offset(0, i).Value2 = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + startRowNum.ToString();
+                                row.get_Offset(0, i).Formula = "=\'" + dt.TableName + "\'!" + GetExcelColumnName(j) + startRowNum.ToString();
                                 row.EntireRow.NumberFormat = "#,##0";
                                 break;
                         }
@@ -481,7 +481,7 @@ namespace AMO.EnPI.AddIn
 
                 for (int i = 1; i < headerCount; i++)
                 {
-                    //tmpRng.get_Offset(0, i).Value2 = "=SUMIF(A1:A" + Utilities.ExcelHelpers.writeAppendBottomAddress(WS, -2).ToString() + "," + tmpRng.Address.ToString() + "," + GetExcelColumnName(i + 1) + "1:" + GetExcelColumnName(i + 1) + Utilities.ExcelHelpers.writeAppendBottomAddress(WS, -2).ToString() + ")";
+                    //tmpRng.get_Offset(0, i).Formula = "=SUMIF(A1:A" + Utilities.ExcelHelpers.writeAppendBottomAddress(WS, -2).ToString() + "," + tmpRng.Address.ToString() + "," + GetExcelColumnName(i + 1) + "1:" + GetExcelColumnName(i + 1) + Utilities.ExcelHelpers.writeAppendBottomAddress(WS, -2).ToString() + ")";
                     tmpRng.get_Offset(0, i).FormulaArray = "=SUM(IF(EXACT(A1:A" + rangeBottom + "," + tmpRng.Address.ToString() + ")," + GetExcelColumnName(i + 1) + "1:" + GetExcelColumnName(i + 1) + rangeBottom + "))";
                 }
             }
@@ -541,19 +541,19 @@ namespace AMO.EnPI.AddIn
                             rowNum += 7;
                         }
                         output += ")";
-                        row.get_Offset(0, i).Value2 = "=" + output;
+                        row.get_Offset(0, i).Formula = "=" + output;
                         row.EntireRow.NumberFormat = "#,##0";
                         break;
                     case "Adjustment for Baseline Primary Energy Use (MMBtu/year)":
-                        row.get_Offset(0, i).Value2 = "=OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN())),5,0,1,1) + INDIRECT((ADDRESS(ROW()-1,COLUMN()))) - INDIRECT((ADDRESS(ROW()-1,2)))";
+                        row.get_Offset(0, i).Formula = "=OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN())),5,0,1,1) + INDIRECT((ADDRESS(ROW()-1,COLUMN()))) - INDIRECT((ADDRESS(ROW()-1,2)))";
                         row.EntireRow.NumberFormat = "#,##0";
                         break;
                     case "Adjusted Baseline Primary Energy Use (MMBtu/year)":
-                        row.get_Offset(0, i).Value2 = "=OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN())),-1,0,1,1)+OFFSET(INDIRECT(ADDRESS(ROW(),2)),-2,0,1,1)";
+                        row.get_Offset(0, i).Formula = "=OFFSET(INDIRECT(ADDRESS(ROW(),COLUMN())),-1,0,1,1)+OFFSET(INDIRECT(ADDRESS(ROW(),2)),-2,0,1,1)";
                         row.EntireRow.NumberFormat = "#,##0";
                         break;
                     case "Annual Improvement (%)":
-                        row.get_Offset(0, i).Value2 = "=IF(ISERROR(OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,0,1,1) - OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,-1,1,1)),0,OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,0,1,1) - OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,-1,1,1))";
+                        row.get_Offset(0, i).Formula = "=IF(ISERROR(OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,0,1,1) - OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,-1,1,1)),0,OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,0,1,1) - OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,-1,1,1))";
                         row.EntireRow.NumberFormat = "0.0%";
                         break;
                     case "Total Improvement (%)":
@@ -582,11 +582,11 @@ namespace AMO.EnPI.AddIn
                         }
                         numerator += ")";
                         denom += ")";
-                        row.get_Offset(0, i).Value2 = "=" + numerator + "/" + denom;
+                        row.get_Offset(0, i).Formula = "=" + numerator + "/" + denom;
                         row.EntireRow.NumberFormat = "0.0%";
                         break;
                     case "New Energy Savings for Current Year (MMBtu/year)":
-                        row.get_Offset(0, i).Value2 = "=IF(ISERROR(OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,0,1,1) - OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,-1,1,1)),0,OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,0,1,1) - OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,-1,1,1))";
+                        row.get_Offset(0, i).Formula = "=IF(ISERROR(OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,0,1,1) - OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,-1,1,1)),0,OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,0,1,1) - OFFSET(INDIRECT(ADDRESS(ROW(), COLUMN())),1,-1,1,1))";
                         row.EntireRow.NumberFormat = "#,##0";
                         break;
                     case "Total Energy Savings since Baseline Year (MMBtu/year)":
@@ -606,7 +606,7 @@ namespace AMO.EnPI.AddIn
                             rowNum7 += 7;
                         }
                         output7 += ")";
-                        row.get_Offset(0, i).Value2 = "=" + output7;
+                        row.get_Offset(0, i).Formula = "=" + output7;
                         row.EntireRow.NumberFormat = "#,##0";
                         break;
                 }
@@ -885,7 +885,7 @@ namespace AMO.EnPI.AddIn
                 target.get_Resize(rows, 1).get_Offset(0, pivot_src_hdrs.IndexOf(col_name)).FormulaArray = LinkedValues(dt, namendx);
             // if no name exists, use the sheet name of the source sheet
             if (namendx == 0)
-                target.get_Resize(rows, 1).get_Offset(0, pivot_src_hdrs.IndexOf(col_name)).Value = SheetNameFormula(dt);
+                target.get_Resize(rows, 1).get_Offset(0, pivot_src_hdrs.IndexOf(col_name)).Formula = SheetNameFormula(dt);
 
             // YEAR Column
             int yrndx = (Utilities.ExcelHelpers.GetListColumn(dt, col_year)) != null ? Utilities.ExcelHelpers.GetListColumn(dt, col_year).Index : 0;
