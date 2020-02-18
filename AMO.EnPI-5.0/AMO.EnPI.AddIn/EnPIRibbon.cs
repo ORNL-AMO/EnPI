@@ -259,7 +259,7 @@ namespace AMO.EnPI.AddIn
         private void btnAbout_Click(object sender, RibbonControlEventArgs e)
         {
             //this box needs to be updated with every build since it was deemed unnecessary use of time to dynamically get the version number from the setup project
-            MessageBox.Show("Version number: 5.1.4\r\n\r\nBuild date: 02/06/2020 \r\n\r\nDescription: EnPI is a regression analysis based tool developed by the U.S. Department of Energy to help plant and corporate managers establish a normalized baseline of energy consumption, track annual progress of intensity improvements, energy savings, Superior Energy Performance (SEP) EnPIs, and other EnPIs that account for variations due to weather, production, and other variables.");
+            MessageBox.Show("Version number: 5.1.4\r\n\r\nBuild date: 02/18/2020 \r\n\r\nDescription: EnPI is a regression analysis based tool developed by the U.S. Department of Energy to help plant and corporate managers establish a normalized baseline of energy consumption, track annual progress of intensity improvements, energy savings, Superior Energy Performance (SEP) EnPIs, and other EnPIs that account for variations due to weather, production, and other variables.");
         }
 
      
