@@ -40,4 +40,5 @@ If you have issues downloading or running the tool, please contact the AMO Help 
   	- Locate and select EXCEL.EXE and end task
   	- NOTE: this will force close all running Excel windows
 3. If the tool is run in Office 2013, the wizard may flash once when first opened
+4. If downloaded from GitHub, some browsers (e.g., Firefox and Chrome) may flag the download as an uncommonly downloaded file type. If this happens, you must manually approve the download in your browser.
 
